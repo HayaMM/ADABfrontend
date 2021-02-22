@@ -8,13 +8,14 @@ export default class Home extends Component {
             quotes: []
         }
     }
+
     componentDidMount() {
         this.loadQuote();
     }
     loadQuote = () => {
         axios.get("/adab/quote/index")
             .then(response => {
-                console.log(response)
+                console.log("quotes "+response)
                 this.setState({
                     quotes: response.data
                 })

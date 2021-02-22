@@ -12,6 +12,7 @@ export default class AdabApp extends Component {
   state={
     isUser: false,
     user:null,
+    successMessage:null,
     message:null
   }
   // method for rigstration
@@ -70,7 +71,7 @@ export default class AdabApp extends Component {
             </div>
         </nav>
         <div>
-<Route path="/register" component={() => <Register register={this.registerHandler} />}></Route>
+<Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route>
 <Route path="/login" component={() => <Login login={this.loginHandler} />}
           ></Route>
         </div>

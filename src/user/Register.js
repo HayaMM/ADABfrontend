@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Form, Button } from 'react-bootstrap'
 export default class Register extends Component {
-   state={}
+   state={ userRole:"ROLE_USER"}
 
    registerHandler = () => {
     this.props.register(this.state);
@@ -37,15 +37,10 @@ export default class Register extends Component {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name="password" onChange={this.changeHandler}></Form.Control>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label>User Role</Form.Label>
-                    <Form.Control as="select" name="userRole" onChange={this.changeHandler}>
-                        <option value="">Select Role</option>
-                        <option value="ROLE_ADMIN">Admin</option>
-                        <option value="ROLE_USER">User</option>
-                    </Form.Control>
-                </Form.Group>
-                <Button variant="primary" block onClick={this.registerHandler}>Register</Button>
+            
+
+                <input type="hidden"  ref={this.userRole} />
+                <Button variant="primary" block onClick={this.registerHandler} >Register</Button>
             </Container>
         </div>
         )

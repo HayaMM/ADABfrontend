@@ -5,6 +5,7 @@ export default class Quote extends Component {
         return (
             <div>
                 {this.props.qbody}
+                <hr />
             </div>
         )
     }

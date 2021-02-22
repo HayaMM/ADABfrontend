@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Home from './Home'
 import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Register from "./user/Register";
@@ -65,6 +66,7 @@ export default class AdabApp extends Component {
             <div>
               <Link to="/register">Register</Link> {' '}
               <Link to="/login">Login</Link> {' '}
+              <Home></Home>
             </div>
         </nav>
         <div>
@@ -76,3 +78,4 @@ export default class AdabApp extends Component {
     )
   }
 }
+

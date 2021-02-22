@@ -11,3 +11,4 @@ export default class AdabApp extends Component {
     )
   }
 }
+

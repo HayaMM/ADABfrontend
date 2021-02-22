@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AdabApp from './AdabApp';
 import reportWebVitals from './reportWebVitals';
 import AdabApp from './AdabApp';
 
 ReactDOM.render(
   <React.StrictMode>
+
     {/* <App /> */}
+
     <AdabApp />
   </React.StrictMode>,
   document.getElementById('root')

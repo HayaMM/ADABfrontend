@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Quote from './Quote';
+import NewQuote from './NewQuote';
 export default class Home extends Component {
     constructor(props) {
         super(props);
@@ -31,11 +32,13 @@ export default class Home extends Component {
             <div>
                 <Router>
                     <nav>
+                        {/* <Link to="/">Home</Link>{' '} */}
                         <Link to="/addquote">Add Quote</Link> {' '}
                     </nav>
-                    {/* <div>
+                    <div>
+                        {/* <Route exact path="/" component={Home}></Route> */}
                         <Route path="/addquote" component={NewQuote}></Route>
-                    </div> */}
+                    </div>
                 </Router>
 
 

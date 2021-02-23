@@ -6,14 +6,35 @@ import Register from "./user/Register";
 import Login from "./user/Login";
 import axios from "axios";
 import { decode } from "jsonwebtoken";
+import { Alert } from "react-bootstrap";
+import ResetPassword from './user/UserPassword/ResetPassword';
 
 export default class AdabApp extends Component {
 
   state={
     isUser: false,
     user:null,
+    successMessage:null,
     message:null
   }
+
+  // is there any token into local storage or not
+  componentDidMount() {
+    let token = localStorage.getItem("token");
+    if (token != null) {
+      let user = decode(token);
+      if (user) {
+        this.setState({
+          isUser: true,
+          user: user,
+        });
+      } else if (!user) {
+        localStorage.removeItem("token");
+        this.setState({
+          isUser: false,
+        });
+      }}}
+
   // method for rigstration
   registerHandler = (user) => {
     axios.post("adab/user/registration", user)
@@ -58,21 +79,44 @@ export default class AdabApp extends Component {
       });
     });
   };
+ // log out method
+  onLogoutHandler = () => {
+    localStorage.removeItem("token");
+    this.setState({
+      isUser: false,
+      user: null,
+    });
+  };
 
   render() {
+    const { isUser } = this.state;
+    
+    // to show message alert..
+    const message = this.state.message ? (
+      <Alert variant="danger">{this.state.message}</Alert>
+    ) : null;
+    const successMessage = this.state.successMessage ? (
+      <Alert variant="success">{this.state.successMessage}</Alert>
+    ) : null;
     return (
       <Router>
         <nav>
+        {message} {successMessage} {isUser ? (
+            <div>
+          {this.state.user ? "Welcome " + this.state.user.sub : null} {"  "}
+              <Link to="/logout" onClick={this.onLogoutHandler}>Logout </Link>{" "}
+            </div>
+          ) : (
             <div>
               <Link to="/register">Register</Link> {' '}
               <Link to="/login">Login</Link> {' '}
-              <Home></Home>
             </div>
+          )}
         </nav>
         <div>
-<Route path="/register" component={() => <Register register={this.registerHandler} />}></Route>
-<Route path="/login" component={() => <Login login={this.loginHandler} />}
-          ></Route>
+<Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route>
+<Route path="/login" component={() =>isUser ? <Home /> : <Login login={this.loginHandler} />}></Route>
+<Route path="/resetpassword" component={() => <ResetPassword/>}></Route>
         </div>
     </Router>
     )

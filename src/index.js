@@ -5,8 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AdabApp from './AdabApp';
 import reportWebVitals from './reportWebVitals';
 
-
-
 ReactDOM.render(
   <React.StrictMode>
 

@@ -61,6 +61,21 @@ export default class Home extends Component {
             clickedQuoteId: id
         })
     }
+    editQuote = (quote) => {
+        axios.put("/adab/quote/edit", quote, {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
+            .then(response => {
+                console.log("Quote edited!!")
+                this.loadQuote();
+            })
+            .catch(error => {
+                console.log("Error edit qoute!!")
+                console.log(error)
+            })
+    }
 
     render() {
         return (

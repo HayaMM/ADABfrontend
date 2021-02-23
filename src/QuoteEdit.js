@@ -16,15 +16,15 @@ export default class QuoteEdit extends Component {
         console.log(updatedQuote)
         this.setState({ newQuote: updatedQuote })
     }
-    // handleSubmit = (event) => {
-    //     event.preventDefault()
-    //     this.props.addQuote(this.state.newQuote);
-    // }
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.editQuote(this.state.newQuote);
+    }
     render() {
         return (
             <div>
                 <h1>Edit {this.state.newQuote.qtitle}!</h1>
-                <form >
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>Quote Title</label>
                         <input

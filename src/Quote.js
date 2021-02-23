@@ -7,6 +7,7 @@ export default class Quote extends Component {
                 {this.props.qbody}
                 <br />
                 <button onClick={() => { this.props.deleteQuote(this.props.id) }}>Delete "{this.props.qtitle}"</button>
+                <button onClick={() => { this.props.editView(this.props.id) }}>Edit "{this.props.qtitle}"</button>
                 <hr />
             </div>
         )

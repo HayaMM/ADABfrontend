@@ -3,11 +3,14 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Quote from './Quote';
 import NewQuote from './NewQuote';
+import QuoteEdit from './QuoteEdit'
 export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            quotes: []
+            quotes: [],
+            isEdit: false,
+            clickedQuoteId: ''
         }
     }
     componentDidMount() {
@@ -52,6 +55,12 @@ export default class Home extends Component {
                 console.log(error)
             })
     }
+    editView = (id) => {
+        this.setState({
+            isEdit: !this.state.isEdit,
+            clickedQuoteId: id
+        })
+    }
 
     render() {
         return (
@@ -60,10 +69,12 @@ export default class Home extends Component {
                     <nav>
                         {/* <Link to="/">Home</Link>{' '} */}
                         <Link to="/addquote">Add Quote</Link> {' '}
+                        {/* <Link to="/addquote">Edit Quote</Link> {' '} */}
                     </nav>
                     <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
                         <Route path="/addquote" component={() => <NewQuote addQuote={this.addQuote} />}></Route>
+                        {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
                     </div>
                 </Router>
 
@@ -71,7 +82,8 @@ export default class Home extends Component {
                 <h2>All Quotes</h2>
                 {this.state.quotes.map((quote, index) =>
                     <div key={index}>
-                        <Quote {...quote} deleteQuote={this.deleteQuote} />
+                        <Quote {...quote} deleteQuote={this.deleteQuote} editView={this.editView} />
+                        {(this.state.isEdit && this.state.clickedQuoteId === quote.id) ? <QuoteEdit quote={quote} editQuote={this.editQuote} /> : null}
                     </div>)}
             </div>
         )

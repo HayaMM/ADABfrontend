@@ -10,14 +10,13 @@ export default class Home extends Component {
             quotes: []
         }
     }
-
     componentDidMount() {
         this.loadQuote();
     }
     loadQuote = () => {
         axios.get("/adab/quote/index")
             .then(response => {
-                console.log("quotes "+response)
+                console.log("quotes " + response)
                 this.setState({
                     quotes: response.data
                 })
@@ -25,6 +24,17 @@ export default class Home extends Component {
             .catch(error => {
                 console.log("Error returning quotes !!");
                 console.log(error);
+            })
+    }
+    addQuote = (quote) => {
+        axios.post("/adab/quote/add", quote)
+            .then(response => {
+                console.log("Quote dded!!")
+                this.loadQuote();
+            })
+            .catch(error => {
+                console.log("Error adding quote!!");
+                console.log(error)
             })
     }
 
@@ -38,7 +48,7 @@ export default class Home extends Component {
                     </nav>
                     <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
-                        <Route path="/addquote" component={NewQuote}></Route>
+                        <Route path="/addquote" component={() => <NewQuote addQuote={this.addQuote} />}></Route>
                     </div>
                 </Router>
 

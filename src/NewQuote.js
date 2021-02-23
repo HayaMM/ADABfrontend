@@ -16,16 +16,15 @@ export default class NewQuote extends Component {
         console.log(updatedQuote)
         this.setState({ newQuote: updatedQuote })
     }
-    // handleSubmit = (event) => {
-    //     event.preventDefault()
-
-    //     this.props.addQuote(this.state.newQuote);
-    // }
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.addQuote(this.state.newQuote);
+    }
     render() {
         return (
             <div>
                 <h1>Add New Quote</h1>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>Quote Title</label>
                         <input
@@ -54,14 +53,6 @@ export default class NewQuote extends Component {
                             type="text"
                             onChange={this.handleChange}></input>
                     </div>
-                    <div>
-                        <label>Total of likes</label>
-                        <input
-                            name="qreivew"
-                            type="number"
-                            onChange={this.handleChange}></input>
-                    </div>
-
                     <div>
                         <input type="submit" value="Add this Quote"></input>
                     </div>

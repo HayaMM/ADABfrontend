@@ -14,7 +14,9 @@ export default class ResetPassword extends Component {
       
         if (this.state.password === this.state.confpassword){
            this.changepasswordHandler();
-        }else{}
+        }else{
+            //the password do not matches
+        }
 
     }
     changepasswordHandler = () => {

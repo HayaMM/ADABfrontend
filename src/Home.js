@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Quote from './Quote';
 import NewQuote from './NewQuote';
 import QuoteEdit from './QuoteEdit'
-import FooterPage from './FooterPage'
-import HeaderPage from './HeaderPage'
+
 export default class Home extends Component {
 
     constructor(props) {
@@ -89,7 +88,7 @@ export default class Home extends Component {
         // const [searchTerm, setSearchTerm] = useState("");
         return (
             <div>
-                <HeaderPage />
+
                 <Router>
                     <nav>
                         {/* <Link to="/">Home</Link>{' '} */}
@@ -110,7 +109,7 @@ export default class Home extends Component {
                         <Quote {...quote} deleteQuote={this.deleteQuote} editView={this.editView} />
                         {(this.state.isEdit && this.state.clickedQuoteId === quote.id) ? <QuoteEdit quote={quote} editQuote={this.editQuote} /> : null}
                     </div>)}
-                <div><FooterPage /></div>
+
             </div>
         )
     }

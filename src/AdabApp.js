@@ -8,14 +8,15 @@ import axios from "axios";
 import { decode } from "jsonwebtoken";
 import { Alert } from "react-bootstrap";
 import ResetPassword from './user/UserPassword/ResetPassword';
-
+import FooterPage from './FooterPage'
+import HeaderPage from './HeaderPage'
 export default class AdabApp extends Component {
 
-  state={
+  state = {
     isUser: false,
-    user:null,
-    successMessage:null,
-    message:null
+    user: null,
+    successMessage: null,
+    message: null
   }
 
   // is there any token into local storage or not
@@ -33,7 +34,9 @@ export default class AdabApp extends Component {
         this.setState({
           isUser: false,
         });
-      }}}
+      }
+    }
+  }
 
   // method for rigstration
   registerHandler = (user) => {
@@ -49,37 +52,37 @@ export default class AdabApp extends Component {
   // method for login 
   loginHandler = (user) => {
     axios.post("adab/user/authenticate", user)
-    .then((response) => {
-      console.log(response);
-      console.log(response.data.token);
-      //we will be needing this token to send with each and every request that
-      // needs to be authenticated  and we want to turn it programmatically automatically
-      if (response.data.token != null) {
-        localStorage.setItem("token", response.data.token);
-        let user = decode(response.data.token);
-        this.setState({
-          isUser: true,
-          user: user,
-          successMessage: "Successfully logged in ",
-          message: null
-        });
-      } else {
-        this.setState({
-          isUser: false,
-          user: null,
-          message: "Incorrect username or password, try agin",
-        });
-      }
-    })
+      .then((response) => {
+        console.log(response);
+        console.log(response.data.token);
+        //we will be needing this token to send with each and every request that
+        // needs to be authenticated  and we want to turn it programmatically automatically
+        if (response.data.token != null) {
+          localStorage.setItem("token", response.data.token);
+          let user = decode(response.data.token);
+          this.setState({
+            isUser: true,
+            user: user,
+            successMessage: "Successfully logged in ",
+            message: null
+          });
+        } else {
+          this.setState({
+            isUser: false,
+            user: null,
+            message: "Incorrect username or password, try agin",
+          });
+        }
+      })
       .catch((error) => {
         console.log(error);
         this.setState({
           isUser: false,
           message: "Error Occured. Please try again later!!!",
+        });
       });
-    });
   };
- // log out method
+  // log out method
   onLogoutHandler = () => {
     localStorage.removeItem("token");
     this.setState({
@@ -90,7 +93,7 @@ export default class AdabApp extends Component {
 
   render() {
     const { isUser } = this.state;
-    
+
     // to show message alert..
     const message = this.state.message ? (
       <Alert variant="danger">{this.state.message}</Alert>
@@ -100,25 +103,27 @@ export default class AdabApp extends Component {
     ) : null;
     return (
       <Router>
+        <HeaderPage />
         <nav>
-        {message} {successMessage} {isUser ? (
+          {message} {successMessage} {isUser ? (
             <div>
-          {this.state.user ? "Welcome " + this.state.user.sub : null} {"  "}
+              {this.state.user ? "Welcome " + this.state.user.sub : null} {"  "}
               <Link to="/logout" onClick={this.onLogoutHandler}>Logout </Link>{" "}
             </div>
           ) : (
-            <div>
-              <Link to="/register">Register</Link> {' '}
-              <Link to="/login">Login</Link> {' '}
-            </div>
-          )}
+              <div>
+                <Link to="/register">Register</Link> {' '}
+                <Link to="/login">Login</Link> {' '}
+              </div>
+            )}
         </nav>
         <div>
-<Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route>
-<Route path="/login" component={() =>isUser ? <Home /> : <Login login={this.loginHandler} />}></Route>
-<Route path="/resetpassword" component={() => <ResetPassword/>}></Route>
+          <Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route>
+          <Route path="/login" component={() => isUser ? <Home /> : <Login login={this.loginHandler} />}></Route>
+          <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
         </div>
-    </Router>
+        <FooterPage />
+      </Router>
     )
   }
 }

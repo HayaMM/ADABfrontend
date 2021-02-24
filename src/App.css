@@ -18,6 +18,15 @@ footer{
   color: azure;
   text-align: center;
 }
+.stdiv{
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid#4b4c53;
+  padding: 45px;
+  margin: 20px;
+   margin: auto;
+  width: 50%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

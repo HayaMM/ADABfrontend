@@ -63,7 +63,7 @@ export default class ResetPassword extends Component {
 
         const message = this.state.errors ? 
         (
- <Toast  show={this.state.showA} onClose={this.toggleShowA}>
+ <Toast  animation={true} show={this.state.showA} onClose={this.toggleShowA}delay={3000} >
           <Toast.Header>
           </Toast.Header>   
            <Toast.Body><strong>{this.state.errors}</strong></Toast.Body>
@@ -76,7 +76,8 @@ export default class ResetPassword extends Component {
             <div>
                 <Container >
                     <Form.Group>
-                        
+                    {message}
+
                         
                              <TextField 
                              fullWidth
@@ -102,8 +103,6 @@ export default class ResetPassword extends Component {
                         
                       />        
                               
-                               {message}
-
                     </Form.Group>
                     
                     <Button variant="primary" onClick={this.checkPassword}>Change</Button>

@@ -4,13 +4,16 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Quote from './Quote';
 import NewQuote from './NewQuote';
 import QuoteEdit from './QuoteEdit'
+import FooterPage from './FooterPage'
 export default class Home extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             quotes: [],
             isEdit: false,
-            clickedQuoteId: ''
+            clickedQuoteId: '',
+            // search: ""
         }
     }
     componentDidMount() {
@@ -78,6 +81,11 @@ export default class Home extends Component {
     }
 
     render() {
+        // const { search } = this.state;
+        //let quotesListFilter(quote => {
+        //     return quote.qtitle.toLowerCase().indexof(search.toLowerCase()) !== -1
+        // })
+        // const [searchTerm, setSearchTerm] = useState("");
         return (
             <div>
                 <Router>
@@ -93,13 +101,14 @@ export default class Home extends Component {
                     </div>
                 </Router>
 
-
+                {/* <input type="text" placeholder="Search ..." onChange={(event) => { searchTerm(event.target.value) }} /> */}
                 <h2>All Quotes</h2>
                 {this.state.quotes.map((quote, index) =>
                     <div key={index}>
                         <Quote {...quote} deleteQuote={this.deleteQuote} editView={this.editView} />
                         {(this.state.isEdit && this.state.clickedQuoteId === quote.id) ? <QuoteEdit quote={quote} editQuote={this.editQuote} /> : null}
                     </div>)}
+                <div><FooterPage /></div>
             </div>
         )
     }

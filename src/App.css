@@ -1,7 +1,16 @@
 .App {
   text-align: center;
 }
-
+footer{
+  text-align: center;
+  padding: 3px;
+  background-color: #4b4c53;
+  color: azure;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  position: relative;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

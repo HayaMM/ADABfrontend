@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-export default class NewQuote extends Component {
+export default class QuoteEdit extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            newQuote: {}
+            newQuote: props.quote
         }
     }
     handleChange = (event) => {
@@ -18,18 +18,19 @@ export default class NewQuote extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addQuote(this.state.newQuote);
+        this.props.editQuote(this.state.newQuote);
     }
     render() {
         return (
             <div>
-                <h1>Add New Quote</h1>
+                <h1>Edit {this.state.newQuote.qtitle}!</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>Quote Title</label>
                         <input
                             name="qtitle"
                             type="text"
+                            value={this.state.newQuote.qtitle}
                             onChange={this.handleChange}></input>
                     </div>
                     <div>
@@ -37,6 +38,7 @@ export default class NewQuote extends Component {
                         <input
                             name="qbody"
                             type="text"
+                            value={this.state.newQuote.qbody}
                             onChange={this.handleChange}></input>
                     </div>
                     <div>
@@ -44,6 +46,7 @@ export default class NewQuote extends Component {
                         <input
                             name="qwriter"
                             type="text"
+                            value={this.state.newQuote.qwriter}
                             onChange={this.handleChange}></input>
                     </div>
                     <div>
@@ -51,10 +54,11 @@ export default class NewQuote extends Component {
                         <input
                             name="qfrom"
                             type="text"
+                            value={this.state.newQuote.qfrom}
                             onChange={this.handleChange}></input>
                     </div>
                     <div>
-                        <input type="submit" value="Add this Quote"></input>
+                        <input type="submit" value="Edit this Quote"></input>
                     </div>
                 </form>
             </div>

@@ -58,6 +58,7 @@ export default class QuoteEdit extends Component {
                             onChange={this.handleChange}></input>
                     </div>
                     <div>
+                        {/* <input type="hidden" value=""></input> */}
                         <input type="submit" value="Edit this Quote"></input>
                     </div>
                 </form>

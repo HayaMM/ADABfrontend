@@ -51,7 +51,6 @@ export default class ForgotPassword extends Component {
                     </Form.Group>
                     <Button  variant="primary" block onClick={() => this.changepasswordHandler(this.state.mail)}>Send</Button>
                     <Button variant="primary" block onClick={() => this.props.switch(false) }>already have an account</Button>
-
                 </Container>
             </div>
         )

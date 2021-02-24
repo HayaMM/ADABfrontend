@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Quote from './Quote';
 import NewQuote from './NewQuote';
 import QuoteEdit from './QuoteEdit'
+import Profile from './user/Profile';
 
 export default class Home extends Component {
 
@@ -13,6 +14,8 @@ export default class Home extends Component {
             quotes: [],
             isEdit: false,
             clickedQuoteId: '',
+            clickedUserId:'',
+        
             // search: ""
         }
     }
@@ -80,6 +83,22 @@ export default class Home extends Component {
             })
     }
 
+    editUser = (user) => {
+        axios.put("/adab/user/edit", user, {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
+            .then(response => {
+                console.log("profile edited!!")
+                this.loadQuote();
+            })
+            .catch(error => {
+                console.log("Error edit profile!!")
+                console.log(error)
+            })
+    }
+
     render() {
         // const { search } = this.state;
         //let quotesListFilter(quote => {
@@ -94,6 +113,7 @@ export default class Home extends Component {
                         {/* <Link to="/">Home</Link>{' '} */}
                         <Link to="/addquote">Add Quote</Link> {' '}
                         {/* <Link to="/addquote">Edit Quote</Link> {' '} */}
+                        {/* <Link to="/editprofile">Edit Profile</Link> */}
                     </nav>
                     <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
@@ -109,6 +129,10 @@ export default class Home extends Component {
                         <Quote {...quote} deleteQuote={this.deleteQuote} editView={this.editView} />
                         {(this.state.isEdit && this.state.clickedQuoteId === quote.id) ? <QuoteEdit quote={quote} editQuote={this.editQuote} /> : null}
                     </div>)}
+                    {/* <div>
+                        <Profile {...user} editView={this.editView} />
+                        {(this.state.isEdit && this.state.clickedUserId === user.id) ? <QuoteEdit user={user} editUser={this.editUser} /> : null}
+                    </div> */}
 
             </div>
         )

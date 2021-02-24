@@ -10,6 +10,7 @@ import { Alert } from "react-bootstrap";
 import ResetPassword from './user/UserPassword/ResetPassword';
 import FooterPage from './FooterPage'
 import HeaderPage from './HeaderPage'
+import Profile from './user/Profile';
 export default class AdabApp extends Component {
 
   state = {
@@ -120,13 +121,16 @@ export default class AdabApp extends Component {
               <div>
                 <Link to="/register">Register</Link> {' '}
                 <Link to="/login">Login</Link> {' '}
+                  {/* <Link to="/editprofile">Edit Profile</Link>  */}
+                  {/* <Link to="/profile">peofile</Link> {' '} */}
               </div>
             )}
         </nav>
         <div>
-          <Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route>
-          <Route path="/login" component={() => isUser ? <Home /> : <Login login={this.loginHandler} />}></Route>
+          <Route path="/register" component={() => <Register register={this.registerHandler} />}></Route>
+          <Route path="/login" component={() => isUser ? <Profile /> : <Login login={this.loginHandler} />}></Route>
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
+          {/* <Route path="/profile" component={() => <Profile />}></Route> */}
         </div>
         <FooterPage />
       </Router>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./ResetPassword.css";
 import axios from "axios";
 import { Container, Form, Button, Toast  } from 'react-bootstrap'
 import TextField from '@material-ui/core/TextField';
@@ -63,8 +64,12 @@ export default class ResetPassword extends Component {
 
         const message = this.state.errors ? 
         (
- <Toast  animation={true} show={this.state.showA} onClose={this.toggleShowA}delay={3000} >
-          <Toast.Header>
+ <Toast  animation={true} show={this.state.showA} onClose={this.toggleShowA}delay={3000} fade='True'
+  style={{
+    "maxWidth": "500mm"
+  }} >
+          <Toast.Header style={{ color : 'yellow'}}>
+          <strong> warning</strong>
           </Toast.Header>   
            <Toast.Body><strong>{this.state.errors}</strong></Toast.Body>
   </Toast>
@@ -104,8 +109,10 @@ export default class ResetPassword extends Component {
                       />        
                               
                     </Form.Group>
-                    
-                    <Button variant="primary" onClick={this.checkPassword}>Change</Button>
+                    <Form.Group  className="btnqroup">
+                    <button className="btn"  onClick={this.checkPassword}>Change</button>
+                    </Form.Group>
+
                 </Container>
 
             </div>

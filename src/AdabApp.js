@@ -39,6 +39,12 @@ export default class AdabApp extends Component {
     axios.post("adab/user/registration", user)
       .then((response) => {
         console.log(response);
+        this.setState({
+          isUser: true,
+          user: user,
+          successMessage: "Successfully registeration ",
+          message: null
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -92,7 +98,7 @@ export default class AdabApp extends Component {
     
     // to show message alert..
     const message = this.state.message ? (
-      <Alert variant="danger">{this.state.message}</Alert>
+      <Alert role="alert" variant="danger">{this.state.message}</Alert>
     ) : null;
     const successMessage = this.state.successMessage ? (
       <Alert variant="success">{this.state.successMessage}</Alert>
@@ -113,7 +119,7 @@ export default class AdabApp extends Component {
           )}
         </nav>
         <div>
-<Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route>
+<Route path="/register" component={() => <Register register={this.registerHandler}  />}></Route>
 <Route path="/login" component={() =>isUser ? <Home /> : <Login login={this.loginHandler} />}
           ></Route>
         </div>

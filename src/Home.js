@@ -5,6 +5,7 @@ import Quote from './Quote';
 import NewQuote from './NewQuote';
 import QuoteEdit from './QuoteEdit'
 import FooterPage from './FooterPage'
+import HeaderPage from './HeaderPage'
 export default class Home extends Component {
 
     constructor(props) {
@@ -88,6 +89,7 @@ export default class Home extends Component {
         // const [searchTerm, setSearchTerm] = useState("");
         return (
             <div>
+                <HeaderPage />
                 <Router>
                     <nav>
                         {/* <Link to="/">Home</Link>{' '} */}

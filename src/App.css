@@ -11,6 +11,13 @@ footer{
   width: 100%;
   position: relative;
 }
+.Header {
+  background-color:#4b4c53;
+  padding-left: 0;
+  padding-right: 0;
+  color: azure;
+  text-align: center;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

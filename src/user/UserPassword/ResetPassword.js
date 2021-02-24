@@ -3,7 +3,9 @@ import axios from "axios";
 import { Container, Form, Button, Alert } from 'react-bootstrap'
 
 export default class ResetPassword extends Component {
-    state={}
+    state={
+        errors : ''
+    }
     changeHandler = (e) => {
         let temp = { ...this.state }
         temp[e.target.name] = e.target.value;
@@ -11,11 +13,19 @@ export default class ResetPassword extends Component {
 
     }
     checkPassword = () => {
-      
-        if (this.state.password === this.state.confpassword){
+        if (this.state.password === this.state.confpassword && (this.state.password  == 'undefined' || this.state.confpassword ) ){
            this.changepasswordHandler();
-        }else{
-            //the password do not matches
+        }else if (this.state.password == 'undefined' || this.state.confpassword == 'undefined' ){
+            console.log("full the fields please");        
+            this.setState({
+                errors : 'Passwords fields should not be empty'
+            })
+        }
+        else{
+            console.log("don't match");        
+            this.setState({
+                errors : 'Passwords DO NOT match'
+            })
         }
 
     }
@@ -39,16 +49,18 @@ export default class ResetPassword extends Component {
         return (
             <div>
                 {/* {message} */}
-                <Container noValidate autoComplete="off">
+                <Container >
                     <Form.Group>
                         <Form.Label>New Password</Form.Label>
-                        <Form.Control type="password" name="password"  helpertext="Incorrect entry."
+                        <Form.Control type="password" name="password" 
+                        
 					 placeholder="Enter your new password"  onChange={this.changeHandler}></Form.Control>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Confirm Password</Form.Label>
                         <Form.Control type="password"  name="confpassword" 
                         	placeholder="Confirm your new password"  onChange={this.changeHandler}></Form.Control>
+                            <div >{this.state.errors}</div>
                     </Form.Group>
                     <Button variant="primary" onClick={this.checkPassword}>Change</Button>
                 </Container>

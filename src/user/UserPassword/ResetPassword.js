@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
-import { Container, Form, Button, Alert } from 'react-bootstrap'
+import { Container, Form, Button, Toast  } from 'react-bootstrap'
 import TextField from '@material-ui/core/TextField';
 
 
@@ -8,7 +8,8 @@ export default class ResetPassword extends Component {
     state = {
         errors: '',
         passwordfield: false,
-        comfpasswordfield: false
+        comfpasswordfield: false,
+        showA : true
 
     }
     changeHandler = (e) => {
@@ -53,14 +54,22 @@ export default class ResetPassword extends Component {
                 console.log(error);
             })
     }
-
+    toggleShowA = () =>{
+        this.setState({
+            showA : !this.state.showA
+        })
+    }
     render() {
+
         const message = this.state.errors ? 
-        (<Alert class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{this.state.errors}</strong> 
-         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        </button>
-    </Alert>) 
+        (
+ <Toast  show={this.state.showA} onClose={this.toggleShowA}>
+          <Toast.Header>
+          </Toast.Header>   
+           <Toast.Body><strong>{this.state.errors}</strong></Toast.Body>
+  </Toast>
+  ) 
+
             : null;
 
         return (

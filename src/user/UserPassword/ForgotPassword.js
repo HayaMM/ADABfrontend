@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import { Container, Form, Button, Alert } from 'react-bootstrap'
+import Login from '../Login';
 
 
 export default class ForgotPassword extends Component {
@@ -36,6 +37,7 @@ export default class ForgotPassword extends Component {
         })
 
     }
+    
     render() {
         // to show message alert..
     const message = this.state.successMessage ? (<Alert variant="info ">{this.state.message}</Alert>) : null;
@@ -47,7 +49,8 @@ export default class ForgotPassword extends Component {
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control type="email" name="emailAddress" onChange={this.changeHandler}></Form.Control>
                     </Form.Group>
-                    <Button variant="primary" onClick={() => this.changepasswordHandler(this.state.mail)}>Send</Button>
+                    <Button  variant="primary" block onClick={() => this.changepasswordHandler(this.state.mail)}>Send</Button>
+                    <Button variant="primary" block onClick={() => this.props.switch(false) }>already have an account</Button>
                 </Container>
             </div>
         )

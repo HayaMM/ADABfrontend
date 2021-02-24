@@ -5,6 +5,7 @@ import Quote from './Quote';
 import NewQuote from './NewQuote';
 import QuoteEdit from './QuoteEdit'
 import Profile from './user/Profile';
+import ListQuote from './ListQuote'
 
 export default class Home extends Component {
 
@@ -36,7 +37,11 @@ export default class Home extends Component {
             })
     }
     addQuote = (quote) => {
-        axios.post("/adab/quote/add", quote)
+        axios.post("/adab/quote/add", quote, {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
             .then(response => {
                 console.log("Quote dded!!")
                 this.loadQuote();
@@ -112,27 +117,31 @@ export default class Home extends Component {
                     <nav>
                         {/* <Link to="/">Home</Link>{' '} */}
                         <Link to="/addquote">Add Quote</Link> {' '}
+                        <Link to="/allquote">All Quote</Link> {' '}
                         {/* <Link to="/addquote">Edit Quote</Link> {' '} */}
                         {/* <Link to="/editprofile">Edit Profile</Link> */}
                     </nav>
                     <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
                         <Route path="/addquote" component={() => <NewQuote addQuote={this.addQuote} />}></Route>
+                        <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} quotes={this.state.quotes} />}></Route>
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
                     </div>
                 </Router>
 
                 {/* <input type="text" placeholder="Search ..." onChange={(event) => { searchTerm(event.target.value) }} /> */}
-                <h2>All Quotes</h2>
+                {/* <h2>All Quotes</h2>
                 {this.state.quotes.map((quote, index) =>
                     <div key={index}>
                         <Quote {...quote} deleteQuote={this.deleteQuote} editView={this.editView} />
                         {(this.state.isEdit && this.state.clickedQuoteId === quote.id) ? <QuoteEdit quote={quote} editQuote={this.editQuote} /> : null}
+
                     </div>)}
                     {/* <div>
                         <Profile {...user} editView={this.editView} />
                         {(this.state.isEdit && this.state.clickedUserId === user.id) ? <QuoteEdit user={user} editUser={this.editUser} /> : null}
-                    </div> */}
+                    </div> 
+                    </div>)} */}
 
             </div>
         )

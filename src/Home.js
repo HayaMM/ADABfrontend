@@ -33,7 +33,11 @@ export default class Home extends Component {
             })
     }
     addQuote = (quote) => {
-        axios.post("/adab/quote/add", quote)
+        axios.post("/adab/quote/add", quote,{
+            headers:{
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
             .then(response => {
                 console.log("Quote dded!!")
                 this.loadQuote();

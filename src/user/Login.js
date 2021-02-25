@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container, Form, Button } from 'react-bootstrap'
 import ForgotPassword from './UserPassword/ForgotPassword';
 import TextField from '@material-ui/core/TextField';
-import "./UserPassword/ForgotPassword.css";
+import "./UserPassword/Forms.css";
 
 export default class Login extends Component {
     state = {

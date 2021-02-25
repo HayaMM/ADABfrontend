@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Form, Button } from 'react-bootstrap'
 import TextField from '@material-ui/core/TextField';
-import "./UserPassword/ForgotPassword.css";
+import "./UserPassword/Forms.css";
 export default class Register extends Component {
    state={ userRole:"ROLE_USER"}
 

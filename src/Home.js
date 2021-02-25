@@ -100,14 +100,14 @@ export default class Home extends Component {
 
                 <Router>
 
-                <div class="menu">
-  <div class="label">Main Menu</div>
-  <div class="spacer"></div>
-  <div class="item"><span><Link to="/addquote">Add Quote</Link></span></div>
-  <div class="item"><span><Link to="/allquote">All Quote</Link></span></div>
-  <div class="item"><span>Flickr</span></div>
-  <div class="item"><span>Behance</span></div>
-  <div class="item"><span>MixCloud</span></div>
+                <div className="menu">
+  <div className="label">Main Menu</div>
+  <div className="spacer"></div>
+  <div className="item"><span><Link to="/addquote">Add Quote</Link></span></div>
+  <div className="item"><span><Link to="/allquote">All Quote</Link></span></div>
+  <div className="item"><span>Flickr</span></div>
+  <div className="item"><span>Behance</span></div>
+  <div className="item"><span>MixCloud</span></div>
 </div>
                 <div>
                         {/* <Route exact path="/" component={Home}></Route> */}

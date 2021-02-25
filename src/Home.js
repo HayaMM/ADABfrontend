@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Quote from './Quote';
 import NewQuote from './NewQuote';
 import QuoteEdit from './QuoteEdit'
+import Profile from './user/Profile';
 import ListQuote from './ListQuote'
+
 export default class Home extends Component {
 
     constructor(props) {
@@ -14,6 +16,8 @@ export default class Home extends Component {
             quotes: [],
             isEdit: false,
             clickedQuoteId: '',
+            clickedUserId:'',
+        
             // search: ""
         }
     }
@@ -95,21 +99,23 @@ export default class Home extends Component {
             <div>
 
                 <Router>
-                    <div class="menu">
-                        <div class="label">Main Menu</div>
-                        <div class="spacer"></div>
-                        <div class="item"><span><Link to="/addquote">Add Quote</Link></span></div>
-                        <div class="item"><span><Link to="/allquote">All Quote</Link></span></div>
-                        <div class="item"><span>Flickr</span></div>
-                        <div class="item"><span>Behance</span></div>
-                        <div class="item"><span>MixCloud</span></div>
-                    </div>
 
-                    <div>
+                <div class="menu">
+  <div class="label">Main Menu</div>
+  <div class="spacer"></div>
+  <div class="item"><span><Link to="/addquote">Add Quote</Link></span></div>
+  <div class="item"><span><Link to="/allquote">All Quote</Link></span></div>
+  <div class="item"><span>Flickr</span></div>
+  <div class="item"><span>Behance</span></div>
+  <div class="item"><span>MixCloud</span></div>
+</div>
+                <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
                         <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route>
                         <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} quotes={this.state.quotes} />}></Route>
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
+                       
+
                     </div>
                 </Router>
 
@@ -119,8 +125,13 @@ export default class Home extends Component {
                     <div key={index}>
                         <Quote {...quote} deleteQuote={this.deleteQuote} editView={this.editView} />
                         {(this.state.isEdit && this.state.clickedQuoteId === quote.id) ? <QuoteEdit quote={quote} editQuote={this.editQuote} /> : null}
-                    </div>)} */}
 
+                    </div>)}
+                    {/* <div>
+                        <Profile {...user} editView={this.editView} />
+                        {(this.state.isEdit && this.state.clickedUserId === user.id) ? <QuoteEdit user={user} editUser={this.editUser} /> : null}
+                    </div> 
+                    </div>)} */}
 
             </div>
         )

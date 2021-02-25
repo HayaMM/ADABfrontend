@@ -10,6 +10,7 @@ import { Alert } from "react-bootstrap";
 import ResetPassword from './user/UserPassword/ResetPassword';
 import FooterPage from './FooterPage'
 import HeaderPage from './HeaderPage'
+import Profile from './user/Profile';
 export default class AdabApp extends Component {
 
   state = {
@@ -43,6 +44,12 @@ export default class AdabApp extends Component {
     axios.post("adab/user/registration", user)
       .then((response) => {
         console.log(response);
+        this.setState({
+          isUser: true,
+          user: user,
+          successMessage: "Successfully registeration ",
+          message: null
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -54,12 +61,14 @@ export default class AdabApp extends Component {
     axios.post("adab/user/authenticate", user)
       .then((response) => {
         console.log(response);
+        
         console.log(response.data.token);
         //we will be needing this token to send with each and every request that
         // needs to be authenticated  and we want to turn it programmatically automatically
         if (response.data.token != null) {
           localStorage.setItem("token", response.data.token);
           let user = decode(response.data.token);
+          console.log(user)
           this.setState({
             isUser: true,
             user: user,
@@ -96,7 +105,7 @@ export default class AdabApp extends Component {
 
     // to show message alert..
     const message = this.state.message ? (
-      <Alert variant="danger">{this.state.message}</Alert>
+      <Alert role="alert" variant="danger">{this.state.message}</Alert>
     ) : null;
     const successMessage = this.state.successMessage ? (
       <Alert variant="success">{this.state.successMessage}</Alert>
@@ -109,18 +118,24 @@ export default class AdabApp extends Component {
             <div>
               {this.state.user ? "Welcome " + this.state.user.sub : null} {"  "}
               <Link to="/logout" onClick={this.onLogoutHandler}>Logout </Link>{" "}
+              <Link to="/profile">Profile</Link>
             </div>
           ) : (
               <div>
                 <Link to="/register">Register</Link> {' '}
                 <Link to="/login">Login</Link> {' '}
+                  {/* <Link to="/editprofile">Edit Profile</Link>  */}
+                  {/* <Link to="/profile">peofile</Link> {' '} */}
               </div>
             )}
         </nav>
         <div>
           <Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route>
           <Route path="/login" component={() => isUser ? <Home user={this.state.user} /> : <Login login={this.loginHandler} />}></Route>
+
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
+          <Route path="/profile" component={() => <Profile profile={this.state.user}/>}></Route>
+          {/* <Route path="/profile" component={() => <Profile />}></Route> */}
         </div>
         <FooterPage />
       </Router>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./Home.css";
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Quote from './Quote';
@@ -98,15 +99,16 @@ export default class Home extends Component {
             <div>
 
                 <Router>
-                    <nav>
-                        {/* <Link to="/">Home</Link>{' '} */}
-                        <Link to="/addquote">Add Quote</Link> {' '}
-                        <Link to="/allquote">All Quote</Link> {' '}
-                        {/* <Link to="/addquote">Edit Quote</Link> {' '} */}
-                        {/* <Link to="/editprofile">Edit Profile</Link> */}
-                       
-                    </nav>
-                    <div>
+                <div class="menu">
+  <div class="label">Main Menu</div>
+  <div class="spacer"></div>
+  <div class="item"><span><Link to="/addquote">Add Quote</Link></span></div>
+  <div class="item"><span><Link to="/allquote">All Quote</Link></span></div>
+  <div class="item"><span>Flickr</span></div>
+  <div class="item"><span>Behance</span></div>
+  <div class="item"><span>MixCloud</span></div>
+</div>
+                <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
                         <Route path="/addquote" component={() => <NewQuote addQuote={this.addQuote} />}></Route>
                         <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} quotes={this.state.quotes} />}></Route>

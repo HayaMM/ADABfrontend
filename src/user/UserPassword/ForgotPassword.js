@@ -1,14 +1,34 @@
 import React, { Component } from 'react'
+import "./ForgotPassword.css";
 import axios from "axios";
-import { Container, Form, Button, Alert } from 'react-bootstrap'
-import Login from '../Login';
+import { Container, Form, Alert, Button } from 'react-bootstrap'
+import TextField from '@material-ui/core/TextField';
 
 
 export default class ForgotPassword extends Component {
     state = {
         mail: null,
         successMessage : null,
-        message : null
+        message : null,
+        emailAddressfield: false,
+        
+
+    }
+    checkemail = (email) => {
+        console.log(!this.state.emailAddress);
+
+        if (!!this.state.emailAddress) {
+            this.changepasswordHandler(email);
+        } else {
+            console.log("should not be empty");
+            this.setState({
+                message: 'Email Address field should not be empty',
+                emailAddressfield: true,
+                successMessage : true
+                
+            })
+        }
+
     }
     changepasswordHandler = (email) => {
         axios.post(`/adab/user/forgotpassword?emailAddress=${email}`)
@@ -46,11 +66,26 @@ export default class ForgotPassword extends Component {
                  {message}
                 <Container>
                     <Form.Group>
-                        <Form.Label>Email Address</Form.Label>
-                        <Form.Control type="email" name="emailAddress" onChange={this.changeHandler}></Form.Control>
+                        
+                        
+                        <TextField 
+                             fullWidth
+                             type="email"
+                        label="Email Address"
+                        name="emailAddress"
+                        error={this.state.emailAddressfield ? true : false }
+                        placeholder="Enter your Email Address"
+                        onChange={this.changeHandler}
+                        variant="filled"
+                        
+                      />
                     </Form.Group>
-                    <Button  variant="primary" block onClick={() => this.changepasswordHandler(this.state.mail)}>Send</Button>
-                    <Button variant="primary" block onClick={() => this.props.switch(false) }>already have an account</Button>
+                    <Form.Group  className="btnqroup">
+
+                    <button  className="btn"   onClick={() => this.checkemail(this.state.mail)}>Send</button>{' '}
+                    <button className="btn"   onClick={() => this.props.switch(false) }>already have an account</button>
+                    </Form.Group>
+
                 </Container>
             </div>
         )

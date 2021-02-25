@@ -1,15 +1,19 @@
 .App {
   text-align: center;
 }
+body {
+  margin: 0 0 100px; 
+}
 footer{
   text-align: center;
   padding: 3px;
   background-color: #4b4c53;
   color: azure;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  position: relative;
+  position: absolute;
+    height: 50px;
+    width: 100%;
+    margin-top:auto;
+
 }
 .Header {
   background-color:#4b4c53;

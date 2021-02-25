@@ -108,6 +108,7 @@ export default class Home extends Component {
                         <div className="item"><span><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
                         <div className="item"><span>Behance</span></div>
                         <div className="item"><span>MixCloud</span></div>
+                        { "Welcome " + this.props.user.sub} {"  "}
                     </div>
                     <div>
                         {/* <Route exact path="/" component={Home}></Route> */}

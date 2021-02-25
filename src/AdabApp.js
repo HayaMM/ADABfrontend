@@ -117,7 +117,7 @@ export default class AdabApp extends Component {
         <nav>
           {message} {successMessage} {isUser ? (
             <div>
-              {this.state.user ? "Welcome " + this.state.user.sub : null} {"  "}
+
               <Link to="/logout" onClick={this.onLogoutHandler}>Logout </Link>{" "}
             </div>
           ) : (
@@ -130,7 +130,7 @@ export default class AdabApp extends Component {
         <div>
           <Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route>
           <Route path="/login" component={() => isUser ? <Home user={this.state.user} /> : <Login login={this.loginHandler} />}></Route>
-
+          
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
          
         </div>

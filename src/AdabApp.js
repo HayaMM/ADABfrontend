@@ -82,7 +82,7 @@ export default class AdabApp extends Component {
             message: "Incorrect username or password, try agin",
           });
         }
-        
+
       })
       .catch((error) => {
         console.log(error);
@@ -119,7 +119,6 @@ export default class AdabApp extends Component {
             <div>
               {this.state.user ? "Welcome " + this.state.user.sub : null} {"  "}
               <Link to="/logout" onClick={this.onLogoutHandler}>Logout </Link>{" "}
-              <Link to="/profile">Profile</Link>
             </div>
           ) : (
               <div>
@@ -130,10 +129,9 @@ export default class AdabApp extends Component {
         </nav>
         <div>
           <Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route>
-          <Route path="/login" component={() => isUser ? <Home user={this.state.useremail} /> : <Login login={this.loginHandler} />}></Route>
+          <Route path="/login" component={() => isUser ? <Home user={this.state.user} /> : <Login login={this.loginHandler} />}></Route>
 
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
-          <Route path="/profile" component={() => <Profile profile={this.state.user.sub}/>}></Route>
          
         </div>
         <FooterPage />

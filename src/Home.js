@@ -105,7 +105,7 @@ export default class Home extends Component {
                         <div className="spacer"></div>
                         <div className="item"><span><Link to="/addquote" style={{ color: 'inherit', textDecoration: 'none' }}>Add Quote</Link></span></div>
                         <div className="item"><span><Link to="/allquote" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
-                        <div className="item"><span>Flickr</span></div>
+                        <div className="item"><span><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
                         <div className="item"><span>Behance</span></div>
                         <div className="item"><span>MixCloud</span></div>
                     </div>
@@ -113,6 +113,8 @@ export default class Home extends Component {
                         {/* <Route exact path="/" component={Home}></Route> */}
                         <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route>
                         <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} quotes={this.state.quotes} />}></Route>
+                        <Route path="/profile" component={() => <Profile profile={this.props.user}/>}></Route>
+
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
 
 

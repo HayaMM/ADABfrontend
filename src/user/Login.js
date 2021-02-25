@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Container, Form, Button } from 'react-bootstrap'
 import ForgotPassword from './UserPassword/ForgotPassword';
-
+import TextField from '@material-ui/core/TextField';
+import "./UserPassword/Forms.css";
 
 export default class Login extends Component {
     state = {
@@ -28,18 +29,15 @@ export default class Login extends Component {
         })
     }
     render() {
-
         const isSwitch = !this.state.isSwitch ? ( <Container>
             <Form.Group>
-                <Form.Label>Email Address</Form.Label>
-                <Form.Control type="email" name="emailAddress" onChange={this.changeHandler}></Form.Control>
+                <TextField  fullWidth type="email" name="emailAddress"  label="Email Address" placeholder="Enter your Email Address"   variant="filled" onChange={this.changeHandler}/>
             </Form.Group>
             <Form.Group>
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" name="password" onChange={this.changeHandler}></Form.Control>
+                <TextField  fullWidth type="password" name="password" label="Password" placeholder="Enter your Password"  variant="filled" onChange={this.changeHandler}></TextField>
             </Form.Group>
-            <Button variant="primary" block onClick={this.loginHandler}>Login</Button>
-            <Button variant="primary" block onClick={() =>this.switch(true)}>Forgot password</Button>
+            <button  className="btn" variant="primary" block onClick={this.loginHandler}>Login</button>
+            <button  className="btn" variant="primary" block onClick={() =>this.switch(true)}>Forgot password</button>
 
         </Container>) :  <ForgotPassword switch={this.switch}/>
         return (

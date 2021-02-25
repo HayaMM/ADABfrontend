@@ -119,7 +119,7 @@ export default class AdabApp extends Component {
         </nav>
         <div>
           <Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route>
-          <Route path="/login" component={() => isUser ? <Home /> : <Login login={this.loginHandler} />}></Route>
+          <Route path="/login" component={() => isUser ? <Home user={this.state.user} /> : <Login login={this.loginHandler} />}></Route>
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
         </div>
         <FooterPage />

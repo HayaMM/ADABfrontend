@@ -124,8 +124,6 @@ export default class AdabApp extends Component {
               <div>
                 <Link to="/register">Register</Link> {' '}
                 <Link to="/login">Login</Link> {' '}
-                  {/* <Link to="/editprofile">Edit Profile</Link>  */}
-                  {/* <Link to="/profile">peofile</Link> {' '} */}
               </div>
             )}
         </nav>
@@ -134,7 +132,7 @@ export default class AdabApp extends Component {
           <Route path="/login" component={() => isUser ? <Home /> : <Login login={this.loginHandler} />}></Route>
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
           <Route path="/profile" component={() => <Profile profile={this.state.user}/>}></Route>
-          {/* <Route path="/profile" component={() => <Profile />}></Route> */}
+         
         </div>
         <FooterPage />
       </Router>

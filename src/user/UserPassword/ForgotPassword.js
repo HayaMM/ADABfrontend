@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "./ForgotPassword.css";
+import "./Forms.css";
 import axios from "axios";
 import { Container, Form, Alert, Button } from 'react-bootstrap'
 import TextField from '@material-ui/core/TextField';
@@ -80,8 +80,7 @@ export default class ForgotPassword extends Component {
                         
                       />
                     </Form.Group>
-                    <Form.Group  className="btnqroup">
-
+                    <Form.Group  className="bttnqroup">
                     <button  className="btn"   onClick={() => this.checkemail(this.state.mail)}>Send</button>{' '}
                     <button className="btn"   onClick={() => this.props.switch(false) }>already have an account</button>
                     </Form.Group>

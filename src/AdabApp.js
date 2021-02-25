@@ -61,12 +61,14 @@ export default class AdabApp extends Component {
     axios.post("adab/user/authenticate", user)
       .then((response) => {
         console.log(response);
+        
         console.log(response.data.token);
         //we will be needing this token to send with each and every request that
         // needs to be authenticated  and we want to turn it programmatically automatically
         if (response.data.token != null) {
           localStorage.setItem("token", response.data.token);
           let user = decode(response.data.token);
+          console.log(user)
           this.setState({
             isUser: true,
             user: user,
@@ -116,6 +118,7 @@ export default class AdabApp extends Component {
             <div>
               {this.state.user ? "Welcome " + this.state.user.sub : null} {"  "}
               <Link to="/logout" onClick={this.onLogoutHandler}>Logout </Link>{" "}
+              <Link to="/profile">Profile</Link>
             </div>
           ) : (
               <div>
@@ -128,8 +131,9 @@ export default class AdabApp extends Component {
         </nav>
         <div>
           <Route path="/register" component={() => <Register register={this.registerHandler} />}></Route>
-          <Route path="/login" component={() => isUser ? <Profile /> : <Login login={this.loginHandler} />}></Route>
+          <Route path="/login" component={() => isUser ? <Home /> : <Login login={this.loginHandler} />}></Route>
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
+          <Route path="/profile" component={() => <Profile profile={this.state.user}/>}></Route>
           {/* <Route path="/profile" component={() => <Profile />}></Route> */}
         </div>
         <FooterPage />

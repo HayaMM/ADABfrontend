@@ -88,22 +88,6 @@ export default class Home extends Component {
             })
     }
 
-    editUser = (user) => {
-        axios.put("/adab/user/edit", user, {
-            headers: {
-                "Authorization": "Bearer " + localStorage.getItem("token")
-            }
-        })
-            .then(response => {
-                console.log("profile edited!!")
-                this.loadQuote();
-            })
-            .catch(error => {
-                console.log("Error edit profile!!")
-                console.log(error)
-            })
-    }
-
     render() {
         // const { search } = this.state;
         //let quotesListFilter(quote => {
@@ -120,12 +104,15 @@ export default class Home extends Component {
                         <Link to="/allquote">All Quote</Link> {' '}
                         {/* <Link to="/addquote">Edit Quote</Link> {' '} */}
                         {/* <Link to="/editprofile">Edit Profile</Link> */}
+                       
                     </nav>
                     <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
                         <Route path="/addquote" component={() => <NewQuote addQuote={this.addQuote} />}></Route>
                         <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} quotes={this.state.quotes} />}></Route>
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
+                       
+
                     </div>
                 </Router>
 

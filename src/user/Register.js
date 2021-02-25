@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Form, Button } from 'react-bootstrap'
+import TextField from '@material-ui/core/TextField';
+import "./UserPassword/ForgotPassword.css";
 export default class Register extends Component {
    state={ userRole:"ROLE_USER"}
 
@@ -13,34 +15,31 @@ export default class Register extends Component {
     console.log(temp);
    }
    
-    render() {
+    render() {<Form.Group>
+        <TextField  fullWidth type="email" name="emailAddress"  label="Email Address" placeholder="Enter your Email Address"   variant="filled" onChange={this.changeHandler}/>
+    </Form.Group>
         return (
             <div>
             <Container>
                 <Form.Group>
-                    <Form.Label>First Name</Form.Label>
-                    <Form.Control type="text" name="firstName" onChange={this.changeHandler}></Form.Control>
+                    <TextField fullWidth type="text" name="firstName" label="First Name" placeholder="Enter your First Name" onChange={this.changeHandler}></TextField>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Last Name</Form.Label>
-                    <Form.Control name="lastName" onChange={this.changeHandler}></Form.Control>
+                    <TextField fullWidth name="lastName"  type="text" label="Last Name" placeholder="Enter your Last Name" onChange={this.changeHandler}></TextField>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Date of Birth</Form.Label>
-                    <Form.Control type="date" name="dateofBirth" onChange={this.changeHandler}></Form.Control>
+                    <TextField fullWidth type="date" name="dateofBirth"  placeholder="Enter your date of birth " onChange={this.changeHandler}></TextField>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Email Address</Form.Label>
-                    <Form.Control type="email" name="emailAddress" onChange={this.changeHandler}></Form.Control>
+                    <TextField fullWidth  type="email" name="emailAddress" label=" Email Address" placeholder="Enter your Email Address" onChange={this.changeHandler}></TextField>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name="password" onChange={this.changeHandler}></Form.Control>
+                    <TextField fullWidth  type="password" name="password" label="Password" placeholder="Enter your Password" onChange={this.changeHandler}></TextField>
                 </Form.Group>
             
 
                 <input type="hidden"  ref={this.userRole} />
-                <Button variant="primary" block onClick={this.registerHandler} >Register</Button>
+                <button className="btn" variant="primary" block onClick={this.registerHandler} >Register</button>
             </Container>
         </div>
         )

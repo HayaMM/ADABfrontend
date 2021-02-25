@@ -23,7 +23,7 @@ export default class Home extends Component {
     loadQuote = () => {
         axios.get("/adab/quote/index")
             .then(response => {
-                console.log("quotes " + response)
+                console.log("quotes from load" + response)
                 this.setState({
                     quotes: response.data
                 })
@@ -86,6 +86,7 @@ export default class Home extends Component {
     }
 
     render() {
+        console.log("quotes " + this.state.quotes)
         // const { search } = this.state;
         //let quotesListFilter(quote => {
         //     return quote.qtitle.toLowerCase().indexof(search.toLowerCase()) !== -1
@@ -108,7 +109,7 @@ export default class Home extends Component {
                     <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
                         <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route>
-                        <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} quotes={this.state.quotes} />}></Route>
+                        <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} deleteQuote={this.deleteQuote} quotes={this.state.quotes} />}></Route>
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
                     </div>
                 </Router>

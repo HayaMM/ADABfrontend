@@ -35,7 +35,7 @@
 .spacer:before {
   content: "";
   position: absolute;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #f80505;
   height: 1px;
   width: 0%;
   transition: width 0.25s ease;
@@ -56,6 +56,7 @@ span {
 .item:hover span {
   color: #ff0000;
 }
+
 .menu:hover .spacer:before {
   width: 100%;
   transition-delay: 0s;

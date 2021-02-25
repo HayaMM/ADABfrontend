@@ -16,8 +16,8 @@ export default class Home extends Component {
             quotes: [],
             isEdit: false,
             clickedQuoteId: '',
-            clickedUserId:'',
-        
+            clickedUserId: '',
+
             // search: ""
         }
     }
@@ -100,21 +100,21 @@ export default class Home extends Component {
 
                 <Router>
 
-                <div className="menu">
-  <div className="label">Main Menu</div>
-  <div className="spacer"></div>
-  <div className="item"><span><Link to="/addquote">Add Quote</Link></span></div>
-  <div className="item"><span><Link to="/allquote">All Quote</Link></span></div>
-  <div className="item"><span>Flickr</span></div>
-  <div className="item"><span>Behance</span></div>
-  <div className="item"><span>MixCloud</span></div>
-</div>
-                <div>
+                    <div className="menu">
+                        <div className="label">Main Menu</div>
+                        <div className="spacer"></div>
+                        <div className="item"><span><Link to="/addquote" style={{ color: 'inherit', textDecoration: 'none' }}>Add Quote</Link></span></div>
+                        <div className="item"><span><Link to="/allquote" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
+                        <div className="item"><span>Flickr</span></div>
+                        <div className="item"><span>Behance</span></div>
+                        <div className="item"><span>MixCloud</span></div>
+                    </div>
+                    <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
                         <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route>
                         <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} quotes={this.state.quotes} />}></Route>
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
-                       
+
 
                     </div>
                 </Router>

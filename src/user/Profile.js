@@ -12,8 +12,7 @@ export default class Profile extends Component {
    this.loadUserProfile();
     }
     loadUserProfile =( )=>{
-        console.log(this.props.profile.sub)
-        axios.get(`/adab/user/profile?emailAddress=${this.props.profile.sub}`)
+        axios.get(`/adab/user/profile?emailAddress=${this.props.profile}`)
         .then(response =>{
             console.log(response)
             this.setState({

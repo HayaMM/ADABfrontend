@@ -18,7 +18,9 @@ export default class NewQuote extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault()
+        console.log(this.props.user.sub)
         this.props.addQuote(this.state.newQuote);
+
     }
     render() {
         return (
@@ -54,7 +56,6 @@ export default class NewQuote extends Component {
                             onChange={this.handleChange}></input>
                     </div>
                     <div>
-                        {/* <input type="hidden" value=""></input> */}
                         <input type="submit" value="Add this Quote"></input>
                     </div>
                 </form>

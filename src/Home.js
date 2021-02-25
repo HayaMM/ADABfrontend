@@ -38,7 +38,7 @@ export default class Home extends Component {
             })
     }
     addQuote = (quote) => {
-        axios.post("/adab/quote/add", quote, {
+        axios.post(`/adab/quote/add?User=${this.props.user.sub}`, quote, {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -99,6 +99,7 @@ export default class Home extends Component {
             <div>
 
                 <Router>
+
                 <div class="menu">
   <div class="label">Main Menu</div>
   <div class="spacer"></div>
@@ -110,7 +111,7 @@ export default class Home extends Component {
 </div>
                 <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
-                        <Route path="/addquote" component={() => <NewQuote addQuote={this.addQuote} />}></Route>
+                        <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route>
                         <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} quotes={this.state.quotes} />}></Route>
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
                        

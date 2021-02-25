@@ -17,9 +17,8 @@ export default class AdabApp extends Component {
     isUser: false,
     user: null,
     successMessage: null,
-    message: null,
-    useremail : null
-  }
+    message: null
+    }
 
   // is there any token into local storage or not
   componentDidMount() {
@@ -74,8 +73,7 @@ export default class AdabApp extends Component {
             isUser: true,
             user: user,
             successMessage: "Successfully logged in ",
-            message: null,
-            useremail : response.data.token
+            message: null
           });
         } else {
           this.setState({
@@ -84,7 +82,7 @@ export default class AdabApp extends Component {
             message: "Incorrect username or password, try agin",
           });
         }
-        console.log(this.state.useremail)
+        
       })
       .catch((error) => {
         console.log(error);

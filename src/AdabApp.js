@@ -18,7 +18,7 @@ export default class AdabApp extends Component {
     user: null,
     successMessage: null,
     message: null
-  }
+    }
 
   // is there any token into local storage or not
   componentDidMount() {
@@ -82,6 +82,7 @@ export default class AdabApp extends Component {
             message: "Incorrect username or password, try agin",
           });
         }
+
       })
       .catch((error) => {
         console.log(error);
@@ -116,9 +117,8 @@ export default class AdabApp extends Component {
         <nav>
           {message} {successMessage} {isUser ? (
             <div>
-              {this.state.user ? "Welcome " + this.state.user.sub : null} {"  "}
+
               <Link to="/logout" onClick={this.onLogoutHandler}>Logout </Link>{" "}
-              <Link to="/profile">Profile</Link>
             </div>
           ) : (
               <div>
@@ -132,7 +132,10 @@ export default class AdabApp extends Component {
           <Route path="/login" component={() => isUser ? <Home /> : <Login login={this.loginHandler} />}></Route>
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
           <Route path="/profile" component={() => <Profile profile={this.state.user.sub}/>}></Route>
-         
+          <Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route>
+          <Route path="/login" component={() => isUser ? <Home user={this.state.user} /> : <Login login={this.loginHandler} />}></Route>
+          
+          <Route path="/resetpassword" component={() => <ResetPassword />}></Route>      
         </div>
         <FooterPage />
       </Router>

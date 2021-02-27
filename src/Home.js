@@ -16,8 +16,8 @@ export default class Home extends Component {
             quotes: [],
             isEdit: false,
             clickedQuoteId: '',
-            clickedUserId:'',
-        
+            clickedUserId: '',
+
             // search: ""
         }
     }
@@ -27,7 +27,7 @@ export default class Home extends Component {
     loadQuote = () => {
         axios.get("/adab/quote/index")
             .then(response => {
-                console.log("quotes " + response)
+                console.log("quotes from load" + response)
                 this.setState({
                     quotes: response.data
                 })
@@ -90,6 +90,7 @@ export default class Home extends Component {
     }
 
     render() {
+        console.log("quotes " + this.state.quotes)
         // const { search } = this.state;
         //let quotesListFilter(quote => {
         //     return quote.qtitle.toLowerCase().indexof(search.toLowerCase()) !== -1
@@ -100,21 +101,24 @@ export default class Home extends Component {
 
                 <Router>
 
-                <div class="menu">
-  <div class="label">Main Menu</div>
-  <div class="spacer"></div>
-  <div class="item"><span><Link to="/addquote">Add Quote</Link></span></div>
-  <div class="item"><span><Link to="/allquote">All Quote</Link></span></div>
-  <div class="item"><span>Flickr</span></div>
-  <div class="item"><span>Behance</span></div>
-  <div class="item"><span>MixCloud</span></div>
-</div>
-                <div>
+                    <div className="menu">
+                        <div className="label">Main Menu</div>
+                        <div className="spacer"></div>
+                        <div className="item"><span><Link to="/addquote" style={{ color: 'inherit', textDecoration: 'none' }}>Add Quote</Link></span></div>
+                        <div className="item"><span><Link to="/allquote" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
+                        <div className="item"><span><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
+                        <div className="item"><span>Behance</span></div>
+                        <div className="item"><span>MixCloud</span></div>
+                        { "Welcome " + this.props.user.sub} {"  "}
+                    </div>
+                    <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
                         <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route>
-                        <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} quotes={this.state.quotes} />}></Route>
+                        <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} deleteQuote={this.deleteQuote} quotes={this.state.quotes} />}></Route>
+                        <Route path="/profile" component={() => <Profile profile={this.props.user}/>}></Route>
+
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
-                       
+
 
                     </div>
                 </Router>

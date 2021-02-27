@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import "./ResetPassword.css";
+import "./Forms.css";
 import axios from "axios";
-import { Container, Form, Button, Toast  } from 'react-bootstrap'
+import { Container, Form, Button, Toast } from 'react-bootstrap'
 import TextField from '@material-ui/core/TextField';
 
 
@@ -110,7 +110,7 @@ export default class ResetPassword extends Component {
                               
                     </Form.Group>
                     <Form.Group  className="btnqroup">
-                    <button className="btn"  onClick={this.checkPassword}>Change</button>
+                    <Button className="btn"  onClick={this.checkPassword}>Change</Button>
                     </Form.Group>
 
                 </Container>

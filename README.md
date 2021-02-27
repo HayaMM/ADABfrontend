@@ -16,3 +16,7 @@ ADAB Application uses a number of technologies:
 #### Future Work:
 
 #### Planning Documentation:
+
+### User Story 
+You can see the user stories for our app [here](userStory.md).
+

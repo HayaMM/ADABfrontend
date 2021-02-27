@@ -10,6 +10,8 @@ export default class UserProfile extends Component {
                  Last Name: {this.props.user.lastName}<br/>
                 Email Addrees:  {this.props.user.emailAddress}<br/>
                  Date Of Birth: {this.props.user.dateofBirth}<br/>
+
+                 <button onClick={()=>{this.props.editView(this.props.user.id)}}>Edit</button>
                 
             </div>
         )

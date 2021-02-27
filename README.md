@@ -19,4 +19,7 @@ ADAB Application uses a number of technologies:
 
 ### User Story 
 You can see the user stories for our app [here](userStory.md).
+### Wireframes
+You can see the wireframes pages [here](wireframes.md).
+### An embedded screenshot of the app:
 

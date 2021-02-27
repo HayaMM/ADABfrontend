@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
-import "./UserPassword/ForgotPassword.css";
+import "./UserPassword/Forms.css";
 import { Container, Form, Button } from 'react-bootstrap'
 export default class EditProfile extends Component {
     constructor(props) {

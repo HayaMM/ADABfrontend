@@ -48,10 +48,22 @@ export default class Profile extends Component {
                 console.log(error)
             })
     }
+    deleteAccount= (id) =>{
+        axios.delete(`/adab/user/delete?id=${this.state.user.id}`)
+            .then(response =>{
+                console.log("Deleted!")
+                console.log(response)
+                this.loadUserProfile();
+            })
+            .catch(error =>{
+                console.log("Error Deleting account!")
+                console.log(error)
+            })
+    }
     render() {
         return (
             <div>
-                <UserProfile user={this.state.user} editView={this.editView} />
+                <UserProfile user={this.state.user} editView={this.editView} deleteAccount ={this.deleteAccount} />
                 {(this.state.isEdit && this.state.clickedUserId === this.state.user.id) ? <EditProfile user={this.state.user} editProfile={this.editProfile}/> : null}
         
             </div>

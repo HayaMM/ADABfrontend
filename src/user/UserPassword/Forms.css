@@ -50,3 +50,32 @@
 
 
 }
+/* --------------------------------------- */
+html, body, .app {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: auto;
+    height: auto;
+  }
+  .popup {
+    position: fixed;
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+  .popup_inner {
+    position: absolute;
+    left: 27%;
+    right: 27%;
+    top: 40%;
+    bottom: 40%;
+    margin: auto;
+    background: white;
+    border: 10px solid #4b4c53;
+
+  }

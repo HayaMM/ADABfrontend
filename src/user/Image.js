@@ -3,6 +3,7 @@ import "./UserPassword/Forms.css";
 import Images from './img/userpicdefult.jpg';
 import { Form, Container } from 'react-bootstrap'
 import axios from "axios";
+import "./UserPassword/Forms.css";
 
 
 export default class Image extends Component {
@@ -41,26 +42,31 @@ export default class Image extends Component {
             })
 
     }
+    iseditpicmood = (i) => {
+        this.setState({
+            isEditpic: i
+        })
+    }
     render() {
         let isimg = this.props.theimage ? `data:image/jpg;base64,${this.props.theimage}` : Images;
 
-        //    let iseditpicmood = !this.state.isEditpic?  <img className="profileimg" src={isimg} alt="profile picture" onClick={this.clicked(true)} ></img> : 
-        //    ;
+        let iseditpicmood = !this.state.isEditpic ? <img className="profileimg" src={isimg} alt="profile picture" onClick={() => this.iseditpicmood(true)} ></img> :
+            <Container className='popup'>
+                <Form.Group encType="multipart/form-data" className='popup_inner' >
+                    <input type="file"
+                        name="file"
+                        label="Upload Image"
+                        onChange={this.changeHandler}
+                        encType="multipart/form-data"
+                    />
+                    <button onClick={() => this.clicked()}>add</button>
+                    <button onClick={() => this.iseditpicmood(false)}>back</button>
+                </Form.Group>
+            </Container>
+            ;
         return (
-            <div >
-                <img className="profileimg" src={isimg} alt="profile picture"  ></img>
-                <Container>
-                    <Form.Group encType="multipart/form-data" >
-                        <label>Upload Files</label>
-                        <input type="file"
-                            name="file"
-                            onChange={this.changeHandler}
-                            encType="multipart/form-data"
-                        />
-                        <button onClick={() => this.clicked()}>add</button>
-                    </Form.Group>
-                </Container>
-
+            <div className='app'>
+                {iseditpicmood}
             </div>
         )
     }

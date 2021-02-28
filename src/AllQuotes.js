@@ -15,7 +15,9 @@ export default class AllQuotes extends Component {
               <br /> <br/>&nbsp; ــــــ {this.props.qfrom} 
               &nbsp; By {this.props.qwriter}
                 <br /><button>Like it</button>
-                <br />
+                <br /><br />
+                <hr />
+
             </div>
         )
     }

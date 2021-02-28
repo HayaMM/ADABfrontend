@@ -36,6 +36,17 @@
       transition: 0s
   }
   .profileimg{
-    width: 90mm;
-     height: 90mm;
+    width: 65mm;
+     height: 65mm;
+     border-radius: 50%;
+     object-fit: cover;
+     object-position: center right;
+     border: 10px solid #4b4a46;
   }
+.profileimg:hover{
+  cursor: pointer;
+  pointer-events: all;
+  border: 10px solid #fe0000;
+
+
+}

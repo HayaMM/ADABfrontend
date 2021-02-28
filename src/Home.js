@@ -7,6 +7,7 @@ import NewQuote from './NewQuote';
 import QuoteEdit from './QuoteEdit'
 import Profile from './user/Profile';
 import ListQuote from './ListQuote'
+import UsersList from './user/UsersList'
 
 export default class Home extends Component {
 
@@ -107,7 +108,7 @@ export default class Home extends Component {
                         <div className="item"><span><Link to="/addquote" style={{ color: 'inherit', textDecoration: 'none' }}>Add Quote</Link></span></div>
                         <div className="item"><span><Link to="/allquote" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
                         <div className="item"><span><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
-                        <div className="item"><span>Behance</span></div>
+                        <div className="item"><span><Link to="/alluser" style={{ color: 'inherit', textDecoration: 'none' }}>All account</Link></span></div>
                         <div className="item"><span>MixCloud</span></div>
                         {"Welcome " + this.props.user.sub} {"  "}
                     </div>
@@ -116,6 +117,7 @@ export default class Home extends Component {
                         <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route>
                         <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} quotes={this.state.quotes} />}></Route>
                         <Route path="/profile" component={() => <Profile profile={this.props.user} />}></Route>
+                        <Route path="/alluser" component={() => <UsersList/>}></Route>
 
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
 

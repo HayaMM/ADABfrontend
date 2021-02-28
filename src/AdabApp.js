@@ -68,6 +68,7 @@ export default class AdabApp extends Component {
         if (response.data.token != null) {
           localStorage.setItem("token", response.data.token);
           let user = decode(response.data.token);
+          localStorage.setItem("user",user.sub)
           console.log(user)
           this.setState({
             isUser: true,
@@ -132,6 +133,7 @@ export default class AdabApp extends Component {
           {/* <Route path="/login" component={() => isUser ? <Home /> : <Login login={this.loginHandler} />}></Route> */}
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
           <Route path="/profile" component={() => <Profile profile={this.state.user}/>}></Route>
+
           {/* <Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route> */}
           <Route path="/login" component={() => isUser ? <Home user={this.state.user} /> : <Login login={this.loginHandler} />}></Route>
           

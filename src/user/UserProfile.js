@@ -15,7 +15,7 @@ export default class UserProfile extends Component {
                  Date Of Birth: {this.props.user.dateofBirth}<br/>
                  profile image : <Image  theimage={this.props.user.image} id={this.props.user.id}/>
                  <button onClick={()=>{this.props.editView(this.props.user.id)}}>Edit</button>
-                 <button onClick={()=>{this.props.deleteAccount(this.props.id)}}>Delete account</button>
+                 {/* <button onClick={()=>{this.props.deleteAccount(this.props.id)}}>Delete account</button> */}
 
                
                 

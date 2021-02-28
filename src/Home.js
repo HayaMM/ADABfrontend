@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import "./Home.css";
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Quote from './Quote';
+import AllQuotes from './AllQuotes';
 import NewQuote from './NewQuote';
 import QuoteEdit from './QuoteEdit'
 import Profile from './user/Profile';
@@ -17,9 +17,19 @@ export default class Home extends Component {
             isEdit: false,
             clickedQuoteId: '',
             clickedUserId: '',
-
-            // search: ""
+            isSwitch: false,
+            search: ''
         }
+    }
+    editSearch = (e) => {
+        this.setState({
+            search: e.target.value
+        })
+    }
+    dynamicSearch = () => {
+        return this.state.quotes.filter(quote => {
+            return quote.qtitle.toLowerCase().includes(this.state.search.toLowerCase())
+        })
     }
     componentDidMount() {
         this.loadQuote();
@@ -88,7 +98,11 @@ export default class Home extends Component {
                 console.log(error)
             })
     }
-
+    switch = (value) => {
+        this.setState({
+            isSwitch: value
+        })
+    }
     render() {
         console.log("quotes " + this.state.quotes)
         // const { search } = this.state;
@@ -122,7 +136,11 @@ export default class Home extends Component {
 
                     </div>
                 </Router>
-
+                <input type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
+                {this.dynamicSearch().map((quote, index) =>
+                    <div key={index}>
+                        <AllQuotes {...quote} />
+                    </div>)}
                 {/* <input type="text" placeholder="Search ..." onChange={(event) => { searchTerm(event.target.value) }} /> */}
                 {/* <h2>All Quotes</h2>
                 {this.state.quotes.map((quote, index) =>

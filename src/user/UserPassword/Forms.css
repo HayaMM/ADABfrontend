@@ -36,6 +36,46 @@
       transition: 0s
   }
   .profileimg{
-    width: 90mm;
-     height: 90mm;
+    width: 65mm;
+     height: 65mm;
+     border-radius: 50%;
+     object-fit: cover;
+     object-position: center right;
+     border: 10px solid #4b4a46;
+  }
+.profileimg:hover{
+  cursor: pointer;
+  pointer-events: all;
+  border: 10px solid #fe0000;
+
+
+}
+/* --------------------------------------- */
+html, body, .app {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: auto;
+    height: auto;
+  }
+  .popup {
+    position: fixed;
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+  .popup_inner {
+    position: absolute;
+    left: 27%;
+    right: 27%;
+    top: 40%;
+    bottom: 40%;
+    margin: auto;
+    background: white;
+    border: 10px solid #4b4c53;
+
   }

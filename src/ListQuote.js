@@ -1,17 +1,32 @@
 import React, { Component } from 'react'
 import Quote from "./Quote";
 import QuoteEdit from './QuoteEdit'
+import axios from 'axios';
 export default class ListQuote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            quotes: props.quotes
-
+            quotes: []
         }
     }
-    // componentDidMount() {
-    //     this.props.loadQuote();
-    // }
+    componentDidMount() {
+        this.loaduserQuote();
+    }
+    loaduserQuote = () => {
+        console.log(this.props.email.sub)
+        axios.get(`/adab/user/indexquote?emailAddress=${this.props.email.sub}`)
+            .then(response => {
+                console.log("quotes from load" + response)
+                this.setState({
+                    quotes: response.data
+                })
+            })
+            .catch(error => {
+                console.log("Error returning quotes!!");
+                console.log(error);
+            })
+    }
+
     render() {
         console.log(this.state.quotes + "from list")
         return (

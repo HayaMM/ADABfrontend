@@ -15,9 +15,7 @@ export default class Register extends Component {
     console.log(temp);
    }
    
-    render() {<Form.Group>
-        <TextField  fullWidth type="email" name="emailAddress"  label="Email Address" placeholder="Enter your Email Address"   variant="filled" onChange={this.changeHandler}/>
-    </Form.Group>
+    render() {
         return (
             <div>
             <Container>

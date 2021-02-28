@@ -8,15 +8,18 @@ export default class Profile extends Component {
         this.state = {
             user: [],
             isEdit: false,
-            clickedUserId : ''
+            clickedUserId : '',
 
         }
     }
     componentDidMount(){
    this.loadUserProfile();
+
     }
     loadUserProfile =( )=>{
-        axios.get(`/adab/user/profile?emailAddress=${this.props.profile.sub}`)
+        let user = localStorage.getItem("user")
+        console.log(user)
+        axios.get(`/adab/user/profile?emailAddress=${user}`)
         .then(response =>{
             console.log(response)
             this.setState({

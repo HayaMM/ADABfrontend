@@ -117,7 +117,7 @@ export default class Home extends Component {
                         <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route>
                         <Route path="/allquote" component={() => <ListQuote loadQuote={this.loadQuote} deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} quotes={this.state.quotes} />}></Route>
                         <Route path="/profile" component={() => <Profile profile={this.props.user} />}></Route>
-                        <Route path="/alluser" component={() => <UsersList/>}></Route>
+                        <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub}/>}></Route>
 
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
 

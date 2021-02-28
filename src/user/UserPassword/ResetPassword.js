@@ -73,9 +73,7 @@ export default class ResetPassword extends Component {
           </Toast.Header>   
            <Toast.Body><strong>{this.state.errors}</strong></Toast.Body>
   </Toast>
-  ) 
-
-            : null;
+  )  : null;
 
         return (
             <div>

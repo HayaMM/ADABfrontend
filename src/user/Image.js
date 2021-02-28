@@ -42,9 +42,9 @@ export default class Image extends Component {
             })
 
     }
-    iseditpicmood = (i) => {
+    iseditpicmood = (is) => {
         this.setState({
-            isEditpic: i
+            isEditpic: is
         })
     }
     render() {

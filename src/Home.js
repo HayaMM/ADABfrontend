@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import "./Home.css";
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import AllQuotes from './AllQuotes';
+import MyQuotes from './MyQuotes';
 import NewQuote from './NewQuote';
 import QuoteEdit from './QuoteEdit'
 import Profile from './user/Profile';
 import ListQuote from './ListQuote'
 import UsersList from './user/UsersList'
+import AllQoutes from './AllQoutes';
 
 export default class Home extends Component {
 
@@ -19,19 +20,20 @@ export default class Home extends Component {
             clickedQuoteId: '',
             clickedUserId: '',
             isSwitch: false,
-            search: ''
+            search: '',
+            ishome : false
         }
     }
-    editSearch = (e) => {
-        this.setState({
-            search: e.target.value
-        })
-    }
-    dynamicSearch = () => {
-        return this.state.quotes.filter(quote => {
-            return quote.qtitle.toLowerCase().includes(this.state.search.toLowerCase())
-        })
-    }
+    // editSearch = (e) => {
+    //     this.setState({
+    //         search: e.target.value
+    //     })
+    // }
+    // dynamicSearch = () => {
+    //     return this.state.quotes.filter(quote => {
+    //         return quote.qtitle.toLowerCase().includes(this.state.search.toLowerCase())
+    //     })
+    // }
     componentDidMount() {
         this.loadQuote();
     }
@@ -104,13 +106,11 @@ export default class Home extends Component {
             isSwitch: value
         })
     }
+   
+    
     render() {
         console.log("quotes " + this.state.quotes)
-        // const { search } = this.state;
-        //let quotesListFilter(quote => {
-        //     return quote.qtitle.toLowerCase().indexof(search.toLowerCase()) !== -1
-        // })
-        // const [searchTerm, setSearchTerm] = useState("");
+
         return (
             <div>
 
@@ -119,10 +119,10 @@ export default class Home extends Component {
                     <div className="menu">
                         <div className="label">Main Menu</div>
                         <div className="spacer"></div>
-                        <div className="item"><span><Link to="/addquote" style={{ color: 'inherit', textDecoration: 'none' }}>Add Quote</Link></span></div>
-                        <div className="item"><span><Link to="/allquote" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
-                        <div className="item"><span><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
-                        <div className="item"><span><Link to="/alluser" style={{ color: 'inherit', textDecoration: 'none' }}>All account</Link></span></div>
+                        <div className="item"><span ><Link to="/addquote" style={{ color: 'inherit', textDecoration: 'none' }}>Add Quote</Link></span></div>
+                        <div className="item"><span><Link to="/allquote" style={{ color: 'inherit', textDecoration: 'none' }}>My Quote</Link></span></div>
+                        <div className="item"><span ><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
+                        <div className="item"><span ><Link to="/quotes" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
                         <div className="item"><span>MixCloud</span></div>
                         {"Welcome " + this.props.user.sub} {"  "}
                     </div>
@@ -133,31 +133,14 @@ export default class Home extends Component {
                         />}></Route>
                         <Route path="/profile" component={() => <Profile profile={this.props.user} />}></Route>
                         <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub}/>}></Route>
+                        <Route path="/quotes" component={() => <AllQoutes  quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId}  email={this.props.user} />}></Route>
 
+                        
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
 
 
                     </div>
-                </Router>
-                <input type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
-                {this.dynamicSearch().map((quote, index) =>
-                    <div key={index}>
-                        <AllQuotes {...quote} />
-                    </div>)}
-                {/* <input type="text" placeholder="Search ..." onChange={(event) => { searchTerm(event.target.value) }} /> */}
-                {/* <h2>All Quotes</h2>
-                {this.state.quotes.map((quote, index) =>
-                    <div key={index}>
-                        <Quote {...quote} deleteQuote={this.deleteQuote} editView={this.editView} />
-                        {(this.state.isEdit && this.state.clickedQuoteId === quote.id) ? <QuoteEdit quote={quote} editQuote={this.editQuote} /> : null}
-
-                    </div>)}
-                    {/* <div>
-                        <Profile {...user} editView={this.editView} />
-                        {(this.state.isEdit && this.state.clickedUserId === user.id) ? <QuoteEdit user={user} editUser={this.editUser} /> : null}
-                    </div> 
-                    </div>)} */}
-
+                </Router>  
             </div>
         )
     }

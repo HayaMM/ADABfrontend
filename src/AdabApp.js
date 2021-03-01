@@ -107,10 +107,10 @@ export default class AdabApp extends Component {
 
     // to show message alert..
     const message = this.state.message ? (
-      <Alert role="alert" variant="danger">{this.state.message}</Alert>
+      <Alert className="alert-style" variant="danger">{this.state.message}</Alert>
     ) : null;
     const successMessage = this.state.successMessage ? (
-      <Alert variant="success">{this.state.successMessage}</Alert>
+      <Alert className="alert-style" variant="success">{this.state.successMessage}</Alert>
     ) : null;
     return (
       <Router>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "./Home.css";
 import axios from 'axios';
+import { Toast } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import MyQuotes from './MyQuotes';
 import NewQuote from './NewQuote';
@@ -20,7 +21,10 @@ export default class Home extends Component {
             clickedQuoteId: '',
             clickedUserId: '',
             isSwitch: false,
-            ishome : false
+            successMessageaddqoute : null,
+            ishome : false,
+            showA : true
+
         }
     }
    
@@ -48,6 +52,9 @@ export default class Home extends Component {
         })
             .then(response => {
                 console.log("Quote dded!!")
+                this.setState({
+                    successMessageaddqoute : "The Qoute added Successfully"
+                })
                 this.loadQuote();
             })
             .catch(error => {
@@ -96,14 +103,27 @@ export default class Home extends Component {
             isSwitch: value
         })
     }
-   
+    toggleShowA = () =>{
+        this.setState({
+            showA : !this.state.showA
+        })
+    }
     
     render() {
         console.log("quotes " + this.state.quotes)
-
+        const message = this.state.successMessageaddqoute ?  (
+            <Toast  animation={true} show={this.state.showA} onClose={this.toggleShowA}delay={3000} fade='True'
+             style={{
+               "maxWidth": "500mm"
+             }} >   
+              <Toast.Header style={{ color : '#7FFFD4'}}>
+         <h3> <strong> {this.state.successMessageaddqoute }</strong></h3>
+          </Toast.Header>  
+             </Toast>
+             )   : null;
         return (
             <div>
-
+                {message}
                 <Router>
 
                     <div className="menu">

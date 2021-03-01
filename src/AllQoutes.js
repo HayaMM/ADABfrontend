@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import MyQuotes from './MyQuotes';
-
+import axios from 'axios';
 export default class AllQoutes extends Component {
     constructor(props) {
         super(props);
@@ -20,14 +20,20 @@ export default class AllQoutes extends Component {
             search: e.target.value
         })
     }
+ 
     render() {
         return (
-            <div>  <input type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
-            {this.dynamicSearch().map((quote, index) =>
-                <div key={index}>
-                    <MyQuotes {...quote} email={this.props.email}/>
-                </div>)}
-                </div>
+
+
+            <div>
+                <h2 className="h">All Quotes</h2>
+                <input className="searchbar" type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
+                {this.dynamicSearch().map((quote, index) =>
+                    <div key={index}>
+                        <MyQuotes {...quote email={this.props.email} />
+                    </div>)}
+            </div>
+
         )
     }
 }

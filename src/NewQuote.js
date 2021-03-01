@@ -29,47 +29,47 @@ export default class NewQuote extends Component {
             <div>
                 <Container >
                     <Form.Group >
-                <h1>Add New Quote</h1>
-                   
+                        <h2 className="h">Add New Quote</h2>
+
                         <TextField
-                        label="Quote Title"
-                        name="qtitle"
-                        type="text"
-                        fullWidth
-                        variant="filled"
-                        placeholder="Enter Quote Title"
-                        onChange={this.handleChange}></TextField>
-                   
+                            label="Quote Title"
+                            name="qtitle"
+                            type="text"
+                            fullWidth
+                            variant="filled"
+                            placeholder="Enter Quote Title"
+                            onChange={this.handleChange}></TextField>
+
                         <TextField
-                        labe="Quote Body"
-                        name="qbody"
-                        type="text"
-                        fullWidth
-                        variant="filled"
-                        placeholder="Enter Quote Body"
-                        onChange={this.handleChange}></TextField>
-                    
+                            labe="Quote Body"
+                            name="qbody"
+                            type="text"
+                            fullWidth
+                            variant="filled"
+                            placeholder="Enter Quote Body"
+                            onChange={this.handleChange}></TextField>
+
                         <TextField
-                        label="Quote's Writer"
-                        name="qwriter"
-                        type="text"
-                        fullWidth
-                        variant="filled"
-                        placeholder="Enter Quote's Writer"
-                        onChange={this.handleChange}></TextField>
-                   
+                            label="Quote's Writer"
+                            name="qwriter"
+                            type="text"
+                            fullWidth
+                            variant="filled"
+                            placeholder="Enter Quote's Writer"
+                            onChange={this.handleChange}></TextField>
+
                         <TextField
-                        label="Book's Name"
-                        name="qfrom"
-                        type="text"
-                        fullWidth
-                        variant="filled"
-                        placeholder="Enter Book's Name"
-                        onChange={this.handleChange}></TextField>
-                   
+                            label="Book's Name"
+                            name="qfrom"
+                            type="text"
+                            fullWidth
+                            variant="filled"
+                            placeholder="Enter Book's Name"
+                            onChange={this.handleChange}></TextField>
+                        <br />   <br />
                         <Button type="submit" onClick={this.handleSubmit}>Add this Quote</Button>
-                   
-                </Form.Group>
+
+                    </Form.Group>
                 </Container>
             </div>
         )

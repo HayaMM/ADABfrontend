@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
+import { Button } from 'react-bootstrap'
 import Likes from './Likes';
 import axios from 'axios';
+
 
 export default class MyQuotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            likes: props.liked
             islikes : false
+
         }
     }
     componentDidMount() {
@@ -36,16 +39,19 @@ export default class MyQuotes extends Component {
         const isliked = this.state.islikes ? <div>liked</div> : <div>not liked</div>;
         return (
             <div className="stdiv">
-              Quote's title: {this.props.qtitle}  <br />  <br/>
-              《 &nbsp;  {this.props.qbody}  &nbsp;  》
-              <br /> <br/>&nbsp; ــــــ {this.props.qfrom} 
+                <p className="h">
+                    Quote's title:&nbsp; <b> {this.props.qtitle}  </b><br />  <br />
+                    <b>  《 &nbsp;  {this.props.qbody}  &nbsp;  》</b>
+                    <br /> <br />&nbsp; ــــــ {this.props.qfrom}
               &nbsp; By {this.props.qwriter}
+
                 <br />
                 <Likes email={this.props.email} quoteid={this.props.id} islikes={this.state.islikes}></Likes>
                 <br /><br />
                 {this.props.qreivew}
                 {isliked}
                 <hr />
+
 
             </div>
         )

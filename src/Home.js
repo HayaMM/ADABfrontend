@@ -21,13 +21,12 @@ export default class Home extends Component {
             clickedQuoteId: '',
             clickedUserId: '',
             isSwitch: false,
-            successMessageaddqoute : null,
-            ishome : false,
-            showA : true
-
+            successMessageaddqoute: null,
+            ishome: false,
+            showA: true
         }
     }
-   
+
     componentDidMount() {
         this.loadQuote();
     }
@@ -53,7 +52,7 @@ export default class Home extends Component {
             .then(response => {
                 console.log("Quote dded!!")
                 this.setState({
-                    successMessageaddqoute : "The Qoute added Successfully"
+                    successMessageaddqoute: "The Qoute added Successfully"
                 })
                 this.loadQuote();
             })
@@ -103,25 +102,25 @@ export default class Home extends Component {
             isSwitch: value
         })
     }
-    toggleShowA = () =>{
+
+    toggleShowA = () => {
         this.setState({
-            showA : !this.state.showA
+            showA: !this.state.showA
         })
     }
-    
     render() {
 
         console.log("quotes " + this.state.quotes)
-        const message = this.state.successMessageaddqoute ?  (
-            <Toast  animation={true} show={this.state.showA} onClose={this.toggleShowA}delay={3000} fade='True'
-             style={{
-               "maxWidth": "500mm"
-             }} >   
-              <Toast.Header style={{ color : '#7FFFD4'}}>
-         <h3> <strong> {this.state.successMessageaddqoute }</strong></h3>
-          </Toast.Header>  
-             </Toast>
-             )   : null;
+        const message = this.state.successMessageaddqoute ? (
+            <Toast animation={true} show={this.state.showA} onClose={this.toggleShowA} delay={3000} fade='True'
+                style={{
+                    "maxWidth": "500mm"
+                }} >
+                <Toast.Header style={{ color: '#7FFFD4' }}>
+                    <h3> <strong> {this.state.successMessageaddqoute}</strong></h3>
+                </Toast.Header>
+            </Toast>
+        ) : null;
         return (
             <div>
                 {message}
@@ -143,15 +142,15 @@ export default class Home extends Component {
                         <Route path="/myquote" component={() => <ListQuote deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} email={this.props.user}
                         />}></Route>
                         <Route path="/profile" component={() => <Profile profile={this.props.user} />}></Route>
-                        <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub}/>}></Route>
-                        <Route path="/quotes" component={() => <AllQoutes  quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId}  email={this.props.user} />}></Route>
+                        <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub} />}></Route>
+                        <Route path="/quotes" component={() => <AllQoutes quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} />}></Route>
 
-                        
+
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
 
 
                     </div>
-                </Router>  
+                </Router>
             </div>
         )
     }

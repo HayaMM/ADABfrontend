@@ -26,12 +26,11 @@ export default class ListQuote extends Component {
                 console.log(error);
             })
     }
-
     render() {
         console.log(this.state.quotes + "from list")
         return (
             <div>
-                <h2>All Quotes</h2>
+                <h2 className="h">My Quotes</h2>
                 {this.state.quotes.map((quote, index) =>
                     <div key={index}>
                         <Quote {...quote} deleteQuote={this.props.deleteQuote} editView={this.props.editView} />

@@ -18,33 +18,33 @@ export default class Login extends Component {
         console.log(temp);
     }
     onClick = () => {
-        
-            // return  <Redirect  to="/ForgotPassword" />
-            this.props.history.push('/ForgotPassword');
-        
+
+        // return  <Redirect  to="/ForgotPassword" />
+        this.props.history.push('/ForgotPassword');
+
     }
     switch = (value) => {
         this.setState({
-            isSwitch : value
+            isSwitch: value
         })
     }
     render() {
-        const isSwitch = !this.state.isSwitch ? ( <Container>
+        const isSwitch = !this.state.isSwitch ? (<Container>
             <Form.Group>
-                <TextField  fullWidth type="email" name="emailAddress"  label="Email Address" placeholder="Enter your Email Address"   variant="filled" onChange={this.changeHandler}/>
+                <TextField fullWidth type="email" name="emailAddress" label="Email Address" placeholder="Enter your Email Address" variant="filled" onChange={this.changeHandler} />
             </Form.Group>
             <Form.Group>
-                <TextField  fullWidth type="password" name="password" label="Password" placeholder="Enter your Password"  variant="filled" onChange={this.changeHandler}></TextField>
+                <TextField fullWidth type="password" name="password" label="Password" placeholder="Enter your Password" variant="filled" onChange={this.changeHandler}></TextField>
             </Form.Group>
-            <button  className="btn" variant="primary" block onClick={this.loginHandler}>Login</button>
-            <button  className="btn" variant="primary" block onClick={() =>this.switch(true)}>Forgot password</button>
+            <Button className="btn" variant="primary" block onClick={this.loginHandler}>Login</Button>
+            <Button className="btn" variant="primary" block onClick={() => this.switch(true)}>Forgot password</Button>
 
-        </Container>) :  <ForgotPassword switch={this.switch}/>
+        </Container>) : <ForgotPassword switch={this.switch} />
         return (
             <div>
-               
-               {isSwitch}
-                
+
+                {isSwitch}
+
             </div>
         )
     }

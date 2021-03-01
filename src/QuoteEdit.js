@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import TextField from '@material-ui/core/TextField';
+import { Container, Form, Button, Toast } from 'react-bootstrap'
 export default class QuoteEdit extends Component {
     constructor(props) {
         super(props)
@@ -22,46 +23,41 @@ export default class QuoteEdit extends Component {
     }
     render() {
         return (
-            <div>
-                <h1>Edit {this.state.newQuote.qtitle}!</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label>Quote Title</label>
-                        <input
+            <div className="h">
+                <Container>
+                    <h2 className="h">Edit {this.state.newQuote.qtitle}!</h2>
+                    <Form.Group>
+                        <TextField fullWidth label="Quote's Title"
                             name="qtitle"
                             type="text"
                             value={this.state.newQuote.qtitle}
-                            onChange={this.handleChange}></input>
-                    </div>
-                    <div>
-                        <label>Quote Body</label>
-                        <input
+                            onChange={this.handleChange}></TextField>
+                    </Form.Group>
+                    <Form.Group>
+                        <TextField fullWidth label="Quote's Body"
                             name="qbody"
                             type="text"
                             value={this.state.newQuote.qbody}
-                            onChange={this.handleChange}></input>
-                    </div>
-                    <div>
-                        <label>Quote's Writer</label>
-                        <input
+                            onChange={this.handleChange}></TextField>
+                    </Form.Group>
+                    <Form.Group>
+                        <TextField fullWidth label="Quote's Writer"
                             name="qwriter"
                             type="text"
                             value={this.state.newQuote.qwriter}
-                            onChange={this.handleChange}></input>
-                    </div>
-                    <div>
-                        <label>Book's name</label>
-                        <input
+                            onChange={this.handleChange}></TextField>
+                    </Form.Group>
+                    <Form.Group>
+                        <TextField fullWidth label="Quote's Book"
                             name="qfrom"
                             type="text"
                             value={this.state.newQuote.qfrom}
-                            onChange={this.handleChange}></input>
-                    </div>
-                    <div>
-                        {/* <input type="hidden" value=""></input> */}
-                        <input type="submit" value="Edit this Quote"></input>
-                    </div>
-                </form>
+                            onChange={this.handleChange}></TextField>
+                    </Form.Group>
+
+                    {/* <input type="hidden" value=""></input> */}
+                    <Button className="btn" variant="primary" onClick={this.handleSubmit} type="submit" >Edit</Button>
+                </Container>
             </div>
         )
     }

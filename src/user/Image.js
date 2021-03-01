@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import "./UserPassword/Forms.css";
 import Images from './img/userpicdefult.jpg';
-import { Form, Container } from 'react-bootstrap'
+import { Form, Container, Button } from 'react-bootstrap'
 import axios from "axios";
 import "./UserPassword/Forms.css";
 
@@ -60,8 +60,9 @@ export default class Image extends Component {
                         onChange={this.changeHandler}
                         encType="multipart/form-data"
                     />
-                    <button onClick={() => this.clicked()}>add</button>
-                    <button onClick={() => this.iseditpicmood(false)}>back</button>
+                    <Button onClick={() => this.clicked()}>add</Button>
+                    <br />   <br />
+                    <Button onClick={() => this.iseditpicmood(false)}>back</Button>
                 </Form.Group>
             </Container>
             ;

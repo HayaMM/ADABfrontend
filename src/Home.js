@@ -20,20 +20,10 @@ export default class Home extends Component {
             clickedQuoteId: '',
             clickedUserId: '',
             isSwitch: false,
-            search: '',
             ishome : false
         }
     }
-    // editSearch = (e) => {
-    //     this.setState({
-    //         search: e.target.value
-    //     })
-    // }
-    // dynamicSearch = () => {
-    //     return this.state.quotes.filter(quote => {
-    //         return quote.qtitle.toLowerCase().includes(this.state.search.toLowerCase())
-    //     })
-    // }
+   
     componentDidMount() {
         this.loadQuote();
     }
@@ -120,7 +110,7 @@ export default class Home extends Component {
                         <div className="label">Main Menu</div>
                         <div className="spacer"></div>
                         <div className="item"><span ><Link to="/addquote" style={{ color: 'inherit', textDecoration: 'none' }}>Add Quote</Link></span></div>
-                        <div className="item"><span><Link to="/allquote" style={{ color: 'inherit', textDecoration: 'none' }}>My Quote</Link></span></div>
+                        <div className="item"><span><Link to="/myquote" style={{ color: 'inherit', textDecoration: 'none' }}>My Quote</Link></span></div>
                         <div className="item"><span ><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
                         <div className="item"><span ><Link to="/quotes" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
                         <div className="item"><span>MixCloud</span></div>
@@ -129,7 +119,7 @@ export default class Home extends Component {
                     <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
                         <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route>
-                        <Route path="/allquote" component={() => <ListQuote deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} email={this.props.user}
+                        <Route path="/myquote" component={() => <ListQuote deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} email={this.props.user}
                         />}></Route>
                         <Route path="/profile" component={() => <Profile profile={this.props.user} />}></Route>
                         <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub}/>}></Route>

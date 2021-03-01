@@ -5,13 +5,13 @@ export default class AllQoutes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // liked: '',
             search: '',
-            quotes: props.quotes
+            quotess: props.quotes
         }
     }
     dynamicSearch = () => {
-        return this.state.quotes.filter(quote => {
+        console.log("---"+this.state.quotess)
+        return this.state.quotess.filter(quote => {
             return quote.qtitle.toLowerCase().includes(this.state.search.toLowerCase())
         })
     }
@@ -20,40 +20,20 @@ export default class AllQoutes extends Component {
             search: e.target.value
         })
     }
-    // changePassword = (pw, npw) => {
-    //     axios.post(`/adab/user/changepassword?id=${this.props.user.id}`, {
-    //         password: pw,
-    //         newPassword: npw
-    //     })
-    // addLike = () => {
-    //     axios.post("/adab/liked/add", liked, {
-    //         headers: {
-    //             "Authorization": "Bearer " + localStorage.getItem("token")
-    //         }
-    //     })
-    //         .then(response => {
-    //             console.log("like dded!!")
-    //             this.setState({
-    //                 liked: true
-    //             })
-    //             this.loadQuote();
-    //         })
-    //         .catch(error => {
-    //             console.log("Error adding like!!");
-    //             console.log(error)
-    //         })
-    // }
+ 
     render() {
         return (
+
 
             <div>
                 <h2 className="h">All Quotes</h2>
                 <input className="searchbar" type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
                 {this.dynamicSearch().map((quote, index) =>
                     <div key={index}>
-                        <MyQuotes {...quote} />
+                        <MyQuotes {...quote email={this.props.email} />
                     </div>)}
             </div>
+
         )
     }
 }

@@ -109,6 +109,7 @@ export default class Home extends Component {
         })
     }
     render() {
+
         console.log("quotes " + this.state.quotes)
         const message = this.state.successMessageaddqoute ? (
             <Toast animation={true} show={this.state.showA} onClose={this.toggleShowA} delay={3000} fade='True'

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Container, Form, Button } from 'react-bootstrap'
+import TextField from '@material-ui/core/TextField';
 
 export default class NewQuote extends Component {
     constructor(props) {
@@ -25,40 +27,50 @@ export default class NewQuote extends Component {
     render() {
         return (
             <div>
+                <Container >
+                    <Form.Group >
                 <h1>Add New Quote</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label>Quote Title</label>
-                        <input
-                            name="qtitle"
-                            type="text"
-                            onChange={this.handleChange}></input>
-                    </div>
-                    <div>
-                        <label>Quote Body</label>
-                        <input
-                            name="qbody"
-                            type="text"
-                            onChange={this.handleChange}></input>
-                    </div>
-                    <div>
-                        <label>Quote's Writer</label>
-                        <input
-                            name="qwriter"
-                            type="text"
-                            onChange={this.handleChange}></input>
-                    </div>
-                    <div>
-                        <label>Book's name</label>
-                        <input
-                            name="qfrom"
-                            type="text"
-                            onChange={this.handleChange}></input>
-                    </div>
-                    <div>
-                        <input type="submit" value="Add this Quote"></input>
-                    </div>
-                </form>
+                   
+                        <TextField
+                        label="Quote Title"
+                        name="qtitle"
+                        type="text"
+                        fullWidth
+                        variant="filled"
+                        placeholder="Enter Quote Title"
+                        onChange={this.handleChange}></TextField>
+                   
+                        <TextField
+                        labe="Quote Body"
+                        name="qbody"
+                        type="text"
+                        fullWidth
+                        variant="filled"
+                        placeholder="Enter Quote Body"
+                        onChange={this.handleChange}></TextField>
+                    
+                        <TextField
+                        label="Quote's Writer"
+                        name="qwriter"
+                        type="text"
+                        fullWidth
+                        variant="filled"
+                        placeholder="Enter Quote's Writer"
+                        onChange={this.handleChange}></TextField>
+                   
+                        <TextField
+                        label="Book's Name"
+                        name="qfrom"
+                        type="text"
+                        fullWidth
+                        variant="filled"
+                        placeholder="Enter Book's Name"
+                        onChange={this.handleChange}></TextField>
+                   
+                        <Button type="submit" onClick={this.handleSubmit}>Add this Quote</Button>
+                   
+                </Form.Group>
+                </Container>
             </div>
         )
     }

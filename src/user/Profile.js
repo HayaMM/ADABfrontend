@@ -55,7 +55,7 @@ export default class Profile extends Component {
     render() {
         return (
             <div>
-                <UserProfile user={this.state.user} editView={this.editView} />
+                <UserProfile user={this.state.user} editView={this.editView} loadUserProfile={this.loadUserProfile}  />
 
   
                 {(this.state.isEdit && this.state.clickedUserId === this.state.user.id) ? <EditProfile user={this.state.user} editProfile={this.editProfile} /> : null}

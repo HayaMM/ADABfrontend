@@ -45,7 +45,10 @@ export default class AllQoutes extends Component {
     // }
     render() {
         return (
-            <div>  <input type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
+
+            <div>
+                <h2 className="h">All Quotes</h2>
+                <input type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
                 {this.dynamicSearch().map((quote, index) =>
                     <div key={index}>
                         <MyQuotes {...quote} />

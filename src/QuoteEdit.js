@@ -22,11 +22,12 @@ export default class QuoteEdit extends Component {
     }
     render() {
         return (
-            <div>
-                <h1>Edit {this.state.newQuote.qtitle}!</h1>
+            <div className="h">
+
+                <h2 className="h">Edit {this.state.newQuote.qtitle}!</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label>Quote Title</label>
+                        <label>Quote's Title</label>&nbsp;
                         <input
                             name="qtitle"
                             type="text"
@@ -34,7 +35,7 @@ export default class QuoteEdit extends Component {
                             onChange={this.handleChange}></input>
                     </div>
                     <div>
-                        <label>Quote Body</label>
+                        <label>Quote's Body</label>&nbsp;
                         <input
                             name="qbody"
                             type="text"
@@ -42,7 +43,7 @@ export default class QuoteEdit extends Component {
                             onChange={this.handleChange}></input>
                     </div>
                     <div>
-                        <label>Quote's Writer</label>
+                        <label>Quote's Writer</label>&nbsp;
                         <input
                             name="qwriter"
                             type="text"
@@ -50,7 +51,7 @@ export default class QuoteEdit extends Component {
                             onChange={this.handleChange}></input>
                     </div>
                     <div>
-                        <label>Book's name</label>
+                        <label>Book's name</label>&nbsp;
                         <input
                             name="qfrom"
                             type="text"
@@ -59,7 +60,8 @@ export default class QuoteEdit extends Component {
                     </div>
                     <div>
                         {/* <input type="hidden" value=""></input> */}
-                        <input type="submit" value="Edit this Quote"></input>
+                        <input className="btn" variant="primary" type="submit" value="Edit this Quote"></input>
+
                     </div>
                 </form>
             </div>

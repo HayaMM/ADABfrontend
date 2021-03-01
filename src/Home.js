@@ -21,7 +21,9 @@ export default class Home extends Component {
             clickedUserId: '',
             isSwitch: false,
             search: '',
-            ishome : false
+            ishome: false,
+            success: null,
+            faild: null,
         }
     }
     // editSearch = (e) => {
@@ -58,10 +60,18 @@ export default class Home extends Component {
         })
             .then(response => {
                 console.log("Quote dded!!")
+                this.setState({
+                    success: "Quote added successfully ",
+                    faild: null,
+                })
                 this.loadQuote();
             })
             .catch(error => {
                 console.log("Error adding quote!!");
+                this.setState({
+                    success: null,
+                    faild: "try again",
+                })
                 console.log(error)
             })
     }
@@ -106,8 +116,8 @@ export default class Home extends Component {
             isSwitch: value
         })
     }
-   
-    
+
+
     render() {
         console.log("quotes " + this.state.quotes)
 
@@ -132,15 +142,15 @@ export default class Home extends Component {
                         <Route path="/allquote" component={() => <ListQuote deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} email={this.props.user}
                         />}></Route>
                         <Route path="/profile" component={() => <Profile profile={this.props.user} />}></Route>
-                        <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub}/>}></Route>
-                        <Route path="/quotes" component={() => <AllQoutes  quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId}  email={this.props.user} />}></Route>
+                        <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub} />}></Route>
+                        <Route path="/quotes" component={() => <AllQoutes quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} />}></Route>
 
-                        
+
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
 
 
                     </div>
-                </Router>  
+                </Router>
             </div>
         )
     }

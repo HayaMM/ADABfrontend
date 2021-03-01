@@ -4,7 +4,7 @@ export default class AllQuotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            likes: ''
+            likes: props.liked
         }
     }
     render() {
@@ -14,7 +14,7 @@ export default class AllQuotes extends Component {
               《 &nbsp;  {this.props.qbody}  &nbsp;  》
               <br /> <br/>&nbsp; ــــــ {this.props.qfrom} 
               &nbsp; By {this.props.qwriter}
-                <br /><button>Like it</button>
+                <br /><button >Like it</button>
                 <br /><br />
                 <hr />
 

@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import Home from './Home'
-import "./App.css";
+import { Alert } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Register from "./user/Register";
 import Login from "./user/Login";
 import axios from "axios";
 import { decode } from "jsonwebtoken";
-import { Alert } from "react-bootstrap";
 import ResetPassword from './user/UserPassword/ResetPassword';
 import FooterPage from './FooterPage'
 import HeaderPage from './HeaderPage'
 import Profile from './user/Profile';
+import "./App.css";
 export default class AdabApp extends Component {
 
   state = {
@@ -18,7 +18,7 @@ export default class AdabApp extends Component {
     user: null,
     successMessage: null,
     message: null,
-    }
+  }
 
   // is there any token into local storage or not
   componentDidMount() {
@@ -61,14 +61,14 @@ export default class AdabApp extends Component {
     axios.post("adab/user/authenticate", user)
       .then((response) => {
         console.log(response);
-        
+
         console.log(response.data.token);
         //we will be needing this token to send with each and every request that
         // needs to be authenticated  and we want to turn it programmatically automatically
         if (response.data.token != null) {
           localStorage.setItem("token", response.data.token);
           let user = decode(response.data.token);
-          localStorage.setItem("user",user.sub)
+          localStorage.setItem("user", user.sub)
           console.log(user)
           this.setState({
             isUser: true,
@@ -132,12 +132,12 @@ export default class AdabApp extends Component {
           <Route path="/register" component={() => <Register register={this.registerHandler} />}></Route>
           {/* <Route path="/login" component={() => isUser ? <Home /> : <Login login={this.loginHandler} />}></Route> */}
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
-          <Route path="/profile" component={() => <Profile profile={this.state.user}/>}></Route>
+          <Route path="/profile" component={() => <Profile profile={this.state.user} />}></Route>
 
           {/* <Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route> */}
           <Route path="/login" component={() => isUser ? <Home user={this.state.user} /> : <Login login={this.loginHandler} />}></Route>
-          
-          <Route path="/resetpassword" component={() => <ResetPassword />}></Route>      
+
+          <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
         </div>
         <FooterPage />
       </Router>

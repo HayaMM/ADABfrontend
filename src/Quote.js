@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Container, Form, Button } from 'react-bootstrap'
 export default class Quote extends Component {
     render() {
         return (
@@ -10,9 +10,9 @@ export default class Quote extends Component {
               &nbsp; By {this.props.qwriter}
                     <br /><br />
                     <hr />
-                    <button className="btn" variant="primary" onClick={() => { this.props.deleteQuote(this.props.id) }}>Delete "{this.props.qtitle}"</button>
-                &nbsp;
-                <button className="btn" variant="primary" onClick={() => { this.props.editView(this.props.id) }}>Edit "{this.props.qtitle}"</button>
+                    <Button className="btn" variant="primary" onClick={() => { this.props.deleteQuote(this.props.id) }}>Delete "{this.props.qtitle}"</Button>
+                    <br />   <br />
+                    <Button className="btn" variant="primary" onClick={() => { this.props.editView(this.props.id) }}>Edit "{this.props.qtitle}"</Button>
                 </p>
             </div>
         )

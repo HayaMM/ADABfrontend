@@ -27,6 +27,15 @@ footer{
   color: azure;
   text-align: center;
 }
+.searchbar{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 .stdiv{
   background-color: lightgrey;
   border: 15px solid#4b4c53;

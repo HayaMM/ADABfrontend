@@ -8,10 +8,10 @@ import TextField from '@material-ui/core/TextField';
 export default class ForgotPassword extends Component {
     state = {
         mail: null,
-        successMessage : null,
-        message : null,
+        successMessage: null,
+        message: null,
         emailAddressfield: false,
-        
+
 
     }
     checkemail = (email) => {
@@ -24,8 +24,8 @@ export default class ForgotPassword extends Component {
             this.setState({
                 message: 'Email Address field should not be empty',
                 emailAddressfield: true,
-                successMessage : true
-                
+                successMessage: true
+
             })
         }
 
@@ -34,12 +34,12 @@ export default class ForgotPassword extends Component {
         axios.post(`/adab/user/forgotpassword?emailAddress=${email}`)
             .then(response => {
                 console.log(" " + response.data)
-               if(response.data !== null){
-                   this.setState({
-                    successMessage: true,
-                    message : response.data
-                   })
-               }
+                if (response.data !== null) {
+                    this.setState({
+                        successMessage: true,
+                        message: response.data
+                    })
+                }
             })
             .catch(error => {
                 console.log("Error in ForgotPassword page !!");
@@ -57,32 +57,32 @@ export default class ForgotPassword extends Component {
         })
 
     }
-    
+
     render() {
         // to show message alert..
-    const message = this.state.successMessage ? (<Alert variant="info ">{this.state.message}</Alert>) : null;
+        const message = this.state.successMessage ? (<Alert variant="info ">{this.state.message}</Alert>) : null;
         return (
             <div>
-                 {message}
+                {message}
                 <Container>
                     <Form.Group>
-                        
-                        
-                        <TextField 
-                             fullWidth
-                             type="email"
-                        label="Email Address"
-                        name="emailAddress"
-                        error={this.state.emailAddressfield ? true : false }
-                        placeholder="Enter your Email Address"
-                        onChange={this.changeHandler}
-                        variant="filled"
-                        
-                      />
+
+
+                        <TextField
+                            fullWidth
+                            type="email"
+                            label="Email Address"
+                            name="emailAddress"
+                            error={this.state.emailAddressfield ? true : false}
+                            placeholder="Enter your Email Address"
+                            onChange={this.changeHandler}
+                            variant="filled"
+
+                        />
                     </Form.Group>
-                    <Form.Group  className="bttnqroup">
-                    <button  className="btn"   onClick={() => this.checkemail(this.state.mail)}>Send</button>{' '}
-                    <button className="btn"   onClick={() => this.props.switch(false) }>already have an account</button>
+                    <Form.Group className="bttnqroup">
+                        <Button className="btn" onClick={() => this.checkemail(this.state.mail)}>Send</Button>{' '}
+                        <Button className="btn" onClick={() => this.props.switch(false)}>already have an account</Button>
                     </Form.Group>
 
                 </Container>

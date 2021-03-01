@@ -66,7 +66,7 @@ export default class NewQuote extends Component {
                             variant="filled"
                             placeholder="Enter Book's Name"
                             onChange={this.handleChange}></TextField>
-
+                        <br />   <br />
                         <Button type="submit" onClick={this.handleSubmit}>Add this Quote</Button>
 
                     </Form.Group>

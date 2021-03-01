@@ -109,7 +109,6 @@ export default class Home extends Component {
    
     
     render() {
-        console.log("quotes " + this.state.quotes)
 
         return (
             <div>

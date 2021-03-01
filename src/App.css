@@ -15,6 +15,11 @@ footer{
     width: 100%;
     margin-top:auto;
 }
+.h{
+  color:#4b4c53; 
+  text-align: center;
+  
+}
 .Header {
   background-color:#4b4c53;
   padding-left: 0;
@@ -24,12 +29,13 @@ footer{
 }
 .stdiv{
   background-color: lightgrey;
-  width: 300px;
   border: 15px solid#4b4c53;
   padding: 45px;
   margin: 20px;
    margin: auto;
   width: 50%;
+  text-indent: 50px;
+  text-align: center;
 }
 .App-logo {
   height: 40vmin;

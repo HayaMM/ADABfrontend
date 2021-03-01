@@ -98,7 +98,7 @@ export default class AdabApp extends Component {
     localStorage.removeItem("token");
     this.setState({
       isUser: false,
-      user: null,
+      user: null
     });
   };
 
@@ -132,7 +132,7 @@ export default class AdabApp extends Component {
           <Route path="/register" component={() => <Register register={this.registerHandler} />}></Route>
           {/* <Route path="/login" component={() => isUser ? <Home /> : <Login login={this.loginHandler} />}></Route> */}
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
-          <Route path="/profile" component={() => <Profile profile={this.state.user}/>}></Route>
+          <Route path="/profile" component={() => <Profile profile={this.state.user} />}></Route>
 
           {/* <Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route> */}
           <Route path="/login" component={() => isUser ? <Home user={this.state.user} /> : <Login login={this.loginHandler} />}></Route>

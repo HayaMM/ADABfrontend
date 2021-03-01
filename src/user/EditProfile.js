@@ -103,9 +103,9 @@ export default class EditProfile extends Component {
                         "maxWidth": "500mm"
                     }} >
                     <Toast.Header style={{ color: 'yellow' }}>
-                        <strong> warning</strong>
+                       <h5> <strong> warning</strong></h5>
                     </Toast.Header>
-                    <Toast.Body><strong>{this.state.errors}</strong></Toast.Body>
+                    <Toast.Body><h3><strong>{this.state.errors}</strong></h3></Toast.Body>
                 </Toast>
             ) : null;
 

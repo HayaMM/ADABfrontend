@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Likes from './Likes';
 import axios from 'axios';
 
-export default class AllQuotes extends Component {
+export default class MyQuotes extends Component {
     constructor(props) {
         super(props);
         this.state = {

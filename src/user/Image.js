@@ -34,7 +34,8 @@ export default class Image extends Component {
             .then(response => {
                 console.log("pic added!")
                 console.log(response)
-                this.loadUserProfile();
+                this.iseditpicmood(false);
+                this.props.loadUserProfile();
             })
             .catch(error => {
                 console.log("Error adding picture!")

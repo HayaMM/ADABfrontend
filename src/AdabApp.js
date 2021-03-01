@@ -98,7 +98,7 @@ export default class AdabApp extends Component {
     localStorage.removeItem("token");
     this.setState({
       isUser: false,
-      user: null,
+      user: null
     });
   };
 

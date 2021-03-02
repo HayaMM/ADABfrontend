@@ -51,11 +51,12 @@ export default class AdabApp extends Component {
           successMessage: "Successfully registeration ",
           message: null
         });
+        this.loginHandler(user);
       })
       .catch((error) => {
         console.log(error);
       });
-  };
+  }
 
   // method for login 
   loginHandler = (user) => {

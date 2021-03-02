@@ -51,7 +51,8 @@ export default class UsersAccount extends Component {
                 </div>
             </div> : null;
         return (
-            <div>
+
+           <div>
                 <div className="stdiv">
                     <div className="h">
                         <h2 className="h">{this.props.user.firstName} Information</h2>

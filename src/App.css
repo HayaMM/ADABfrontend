@@ -51,6 +51,11 @@ footer{
   text-align: center;
   
 }
+.hh{
+  color:#4b4c53; 
+  text-align: left;
+  
+}
 .Header {
   background-color:#4b4c53;
   padding-left: 0;
@@ -75,6 +80,22 @@ footer{
   width: 80%;
   height: 100%;
   margin:10% 10% 10% 10%; 
+  text-indent: 50px;
+  text-align: center;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.stdiv2{
+  background-color: lightgrey;
+  border: 15px solid#4b4c53;
+  padding: 45px;
+  margin: 20px;
+   margin: auto;
+  width: 50%;
   text-indent: 50px;
   text-align: center;
 }

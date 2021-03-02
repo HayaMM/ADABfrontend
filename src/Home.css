@@ -15,9 +15,9 @@
   display: inline-block;
   cursor: pointer;
   pointer-events: none;
-  bottom: 20px;
+  /* bottom: 20px;
   position:absolute;
-    margin-right:10px;
+    margin-right:10px; */
 }
 .menu:hover {
   pointer-events: all;

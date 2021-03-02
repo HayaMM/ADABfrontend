@@ -8,7 +8,7 @@ export default class MyQuotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            likes: props.liked,
+            likes: 0,
             islikes : false
 
         }
@@ -33,10 +33,27 @@ export default class MyQuotes extends Component {
                 console.log("Error returning likes!!");
                 console.log(error);
             })
+            axios.get(`/adab/quote/detail?id=${this.props.id}`, {
+                headers : {
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+               }
+            }
+                ).then(response => {
+                    console.log("likes" + response.data.qreivew)
+                    this.setState({
+                        likes: response.data.qreivew
+                    })
+                    
+                })
+                .catch(error => {
+                    console.log("Error returning likes!!");
+                    console.log(error);
+                })
+            
     }
     render() {
 
-        const isliked = this.state.islikes ? <div>liked</div> : <div>not liked</div>;
+        const isliked = this.state.islikes ? "liked" : null;
         return (
             <div className="stdiv">
                 <p className="h">
@@ -46,10 +63,10 @@ export default class MyQuotes extends Component {
               &nbsp; By {this.props.qwriter}
 
                 <br />
-                <Likes email={this.props.email} quoteid={this.props.id} islikes={this.state.islikes}></Likes>
+                <Likes email={this.props.email} quoteid={this.props.id} islikes={this.state.islikes} loadQuote={this.props.loadQuote} isliked={isliked}></Likes>
                 <br /><br />
-                {this.props.qreivew}
-                {isliked}
+                {this.state.likes} Likes
+                
                 <hr />
                 </p>
             </div>

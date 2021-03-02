@@ -115,7 +115,7 @@ export default class AdabApp extends Component {
     ) : null;
     return (
       <Router>
-        <HeaderPage />
+        <HeaderPage  />
         <nav>
           {message} {successMessage} {isUser ? (
             <div>
@@ -141,6 +141,7 @@ export default class AdabApp extends Component {
 
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
         </div>
+        
         <FooterPage />
       </Router>
     )

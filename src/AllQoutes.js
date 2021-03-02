@@ -30,7 +30,7 @@ export default class AllQoutes extends Component {
                 <h2 className="h">All Quotes</h2>
                 <input className="searchbar" type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
                 {this.dynamicSearch().map((quote, index) =>
-                    <div key={index}>
+                    <div key={index} className="wrapper">
                         <MyQuotes  {...quote } email={this.props.email.sub} loadQuote={this.props.loadQuote} />
                     </div>)}
             </div>

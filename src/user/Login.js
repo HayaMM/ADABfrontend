@@ -38,7 +38,7 @@ export default class Login extends Component {
             </Form.Group>
             <Button className="btn" variant="primary" block onClick={this.loginHandler}>Login</Button>
             <Button className="btn" variant="primary" block onClick={() => this.switch(true)}>Forgot password</Button>
-
+            <br /><br />
         </Container>) : <ForgotPassword switch={this.switch} />
         return (
             <div>

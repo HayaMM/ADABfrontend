@@ -8,7 +8,7 @@ export default class MyQuotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            likes: props.liked
+            likes: props.liked,
             islikes: false
 
         }
@@ -44,15 +44,13 @@ export default class MyQuotes extends Component {
                     <b>  《 &nbsp;  {this.props.qbody}  &nbsp;  》</b>
                     <br /> <br />&nbsp; ــــــ {this.props.qfrom}
               &nbsp; By {this.props.qwriter}
-
-
                     <br />
                     <Likes email={this.props.email} quoteid={this.props.id} islikes={this.state.islikes}></Likes>
-                    <br /><br />
-                    {this.props.qreivew}
-                    {isliked}
-                    <hr />
+                    <br /><br /> <hr />
+                    <div>  {this.props.qreivew}
+                        {isliked}</div>
 
+                </p>
 
             </div>
         )

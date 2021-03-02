@@ -8,7 +8,7 @@ export default class MyQuotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            likes: props.liked,
             likes: 0,
             islikes : false
 

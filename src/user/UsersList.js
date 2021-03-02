@@ -46,7 +46,7 @@ export default class UsersList extends Component {
             .then(response =>{
                 console.log("info !")
                 console.log(response)
-                if(response.data.userRole=="ROLE_ADMIN"){
+                if(response.data.userRole=="ROLE_ADMINS"){
                     this.setState({
                         isUserRole: true
                     } )
@@ -57,6 +57,20 @@ export default class UsersList extends Component {
                 console.log(error)
             })
         }
+        
+        loadUserDetails=()=>{
+            axios.get(`/adab/user/detail?emailAddress=${this.props.userEmail}`)
+            .then(response =>{
+                console.log(response)
+                this.setState({
+                    users: response.data
+                })
+            })
+            .catch(error =>{
+                console.log("Error retreiving Account info !!");
+                console.log(error);
+            })
+        }
     render() {
         return (
             <div>
@@ -64,8 +78,9 @@ export default class UsersList extends Component {
                 <ul>
                     {this.state.users.map((user, index) =>
                     <div key={index}>
-                    <Users {...user} isUserRole={this.state.isUserRole}  deleteAccount ={this.deleteAccount} />
+                    <Users {...user} isUserRole={this.state.isUserRole}  deleteAccount ={this.deleteAccount} loadUserDetails={this.loadUserDetails} />
                     </div>)}
+                    
                 </ul>
             </div>
         )

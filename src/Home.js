@@ -133,6 +133,7 @@ export default class Home extends Component {
                         <div className="item"><span><Link to="/myquote" style={{ color: 'inherit', textDecoration: 'none' }}>My Quote</Link></span></div>
                         <div className="item"><span ><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
                         <div className="item"><span ><Link to="/quotes" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
+                        <div className="item"><span><Link to="/alluser" style={{ color: 'inherit', textDecoration: 'none' }}>Users </Link></span></div>
                         <div className="item"><span><Link to="/about" style={{ color: 'inherit', textDecoration: 'none' }}>About ADAB</Link></span></div>
                         {"Welcome " + this.props.user.sub} {"  "}
                     </div>

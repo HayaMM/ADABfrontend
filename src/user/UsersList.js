@@ -7,9 +7,23 @@ export default class UsersList extends Component {
         super(props);
         this.state = {
             users: [],
+            search: '',
             isUserRole: false
 
         }
+    }
+    dynamicSearch = () => {
+        console.log("---" + this.state.quotess)
+        return this.state.users.filter(user => {
+            const userr = user.firstName + user.lastName ;
+            console.log("-------"+userr)
+            return userr.toLowerCase().includes(this.state.search.toLowerCase())
+        })
+    }
+    editSearch = (e) => {
+        this.setState({
+            search: e.target.value
+        })
     }
 
     componentDidMount() {
@@ -65,13 +79,14 @@ export default class UsersList extends Component {
         return (
             <div>
                 <h2 className="h">Users of ADAB website</h2>
-                <ul>
-                    {this.state.users.map((user, index) =>
+                <input className="searchbar" type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
+                <div>
+                    {this.dynamicSearch().map((user, index) =>
                         <div key={index}>
                             <Users {...user} isUserRole={this.state.isUserRole} userEmail={this.props.userEmail} deleteAccount={this.deleteAccount} />
                         </div>)}
 
-                </ul>
+                </div>
             </div>
         )
     }

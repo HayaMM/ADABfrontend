@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import Images from './img/userpicdefult.jpg';
 import UsersAccount from './UsersAccount'
 import { Button } from 'react-bootstrap'
 
@@ -17,16 +17,16 @@ export default class Users extends Component {
         })
     }
     render() {
+        let isimg = this.props.image ? `data:image/jpg;base64,${this.props.theimage}` : Images;
+
         const admin = (this.props.isUserRole) ? <div>
             {(this.state.Role === "ROLE_USER") ? <Button onClick={() => { this.props.deleteAccount(this.props.id) }}>Delete account</Button> : null}</div> : null;
         <br />
         const isseemore = this.state.isseemore ? <UsersAccount user={this.props} onclickdetalis={this.onclickdetalis} userEmail={this.props.userEmail} loadQuote={this.loadQuote}></UsersAccount> :
             <div>
-                {admin}
-                <br />
-                <b><div className="h">{this.props.firstName} {this.props.lastName}</div></b><br />
+                <b><div className="h"><h4>{this.props.firstName} {this.props.lastName}</h4></div><img className="profileimg profile" src={isimg} alt="profile picture"  ></img></b><br />
                 <Button onClick={() => this.onclickdetalis()}>See more</Button>
-
+                {admin}
             </div>;
 
 

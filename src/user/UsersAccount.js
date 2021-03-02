@@ -52,17 +52,19 @@ export default class UsersAccount extends Component {
             </div> : null;
         return (
 
-            <div>
-                <p className="h">
-                    <h2 className="h">{this.props.user.firstName} Information</h2>
+           <div>
+                <div className="stdiv">
+                    <div className="h">
+                        <h2 className="h">{this.props.user.firstName} Information</h2>
           Name:  <b>{this.props.user.firstName} {this.props.user.lastName}</b><br />
           Date Of Birth:<b> {this.props.user.dateofBirth}</b><br />
-          profile image :   <br /> <br /> <img className="profileimg" src={isimg} alt="profile picture"  ></img>
-                    <br />    <br />   <Button onClick={() => this.isviewqoutemood(true)}>View Quotes</Button><br /> <br />
-                    <Button onClick={() => this.props.onclickdetalis()}>Back to Users</Button>
-                </p>
-
-
+          profile image :   <br /> <br /> <img className="profileimg profile" src={isimg} alt="profile picture"  ></img>
+                        <div>
+                            <Button onClick={() => this.isviewqoutemood(true)}>View Quotes</Button>
+                            <Button onClick={() => this.props.onclickdetalis()}>Back to Users</Button>
+                        </div>
+                    </div>
+                </div>
                 {isqoute}
             </div>
         )

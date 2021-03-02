@@ -77,9 +77,9 @@ footer{
   background-color: lightgrey;
   border: 15px solid#4b4c53;
   padding: 45px;
-  margin: 20px;
-   margin: auto;
-  width: 50%;
+  width: 80%;
+  height: 100%;
+  margin:10% 10% 10% 10%; 
   text-indent: 50px;
   text-align: center;
 }
@@ -180,5 +180,25 @@ footer{
   }
 /* ---------------------------------- */
 
+.listing {
+  margin: 0mm;
+  display: grid;
+  grid-gap: 10mm 5px;
+  grid-template-columns:50% 50% ;
+}
 
-  
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.downbody {
+  margin-top: 20mm;
+  border-top: 1px solid #ffe066;
+  padding: 10px;
+  text-align: center;
+}
+.body {
+  padding: 10px;
+} 
+/* ------------------------- */

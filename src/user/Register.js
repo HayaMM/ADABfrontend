@@ -67,6 +67,7 @@ export default class Register extends Component {
 
                     <input type="hidden" ref={this.userRole} />
                     <Button className="btn" variant="primary" block onClick={this.checkPassword} >Register</Button>
+                    <br /><br />
                 </Container>
             </div>
         )

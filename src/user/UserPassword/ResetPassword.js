@@ -10,7 +10,7 @@ export default class ResetPassword extends Component {
         errors: '',
         passwordfield: false,
         comfpasswordfield: false,
-        showA : true
+        showA: true
 
     }
     changeHandler = (e) => {
@@ -19,11 +19,11 @@ export default class ResetPassword extends Component {
         this.setState(temp)
 
     }
-     
+
     checkPassword = () => {
-        if (this.state.password === this.state.confpassword && (!!this.state.password  || !!this.state.confpassword )) {
+        if (this.state.password === this.state.confpassword && (!!this.state.password || !!this.state.confpassword)) {
             this.changepasswordHandler();
-        } else if (!this.state.password  && !this.state.confpassword) {
+        } else if (!this.state.password && !this.state.confpassword) {
             console.log("full the fields please");
             this.setState({
                 errors: 'Passwords fields should not be empty',
@@ -55,60 +55,61 @@ export default class ResetPassword extends Component {
                 console.log(error);
             })
     }
-    toggleShowA = () =>{
+    toggleShowA = () => {
         this.setState({
-            showA : !this.state.showA
+            showA: !this.state.showA
         })
     }
     render() {
 
-        const message = this.state.errors ? 
-        (
- <Toast  animation={true} show={this.state.showA} onClose={this.toggleShowA}delay={3000} fade='True'
-  style={{
-    "maxWidth": "500mm"
-  }} >
-          <Toast.Header style={{ color : 'yellow'}}>
-          <strong> warning</strong>
-          </Toast.Header>   
-           <Toast.Body><strong>{this.state.errors}</strong></Toast.Body>
-  </Toast>
-  )  : null;
+        const message = this.state.errors ?
+            (
+                <Toast animation={true} show={this.state.showA} onClose={this.toggleShowA} delay={3000} fade='True'
+                    style={{
+                        "maxWidth": "500mm"
+                    }} >
+                    <Toast.Header style={{ color: 'yellow' }}>
+                        <strong> warning</strong>
+                    </Toast.Header>
+                    <Toast.Body><strong>{this.state.errors}</strong></Toast.Body>
+                </Toast>
+            ) : null;
 
         return (
             <div>
                 <Container >
                     <Form.Group>
-                    {message}
+                        {message}
 
-                        
-                             <TextField 
-                             fullWidth
-                             type="password"
-                        label=" New Password"
-                        name="password"
-                        error={this.state.passwordfield ? true : false }
-                        placeholder="Enter your new password"
-                        onChange={this.changeHandler}
-                        variant="filled"
-                        
-                      />
+
+                        <TextField
+                            fullWidth
+                            type="password"
+                            label=" New Password"
+                            name="password"
+                            error={this.state.passwordfield ? true : false}
+                            placeholder="Enter your new password"
+                            onChange={this.changeHandler}
+                            variant="filled"
+
+                        />
                     </Form.Group>
                     <Form.Group>
-                        <TextField 
-                        fullWidth
-                        label="Confirm Password"
-                        type='password'
-                        error={this.state.comfpasswordfield ? true : false }
-                        placeholder="Confirm your new password"
-                        onChange={this.changeHandler}
-                        variant="filled"
-                        
-                      />        
-                              
+                        <TextField
+                            fullWidth
+                            label="Confirm Password"
+                            type='password'
+                            error={this.state.comfpasswordfield ? true : false}
+                            placeholder="Confirm your new password"
+                            onChange={this.changeHandler}
+                            variant="filled"
+
+                        />
+
                     </Form.Group>
-                    <Form.Group  className="btnqroup">
-                    <Button className="btn"  onClick={this.checkPassword}>Change</Button>
+                    <Form.Group className="btnqroup">
+                        <Button className="btn" onClick={this.checkPassword}>Change</Button>
+                        <br /><br />
                     </Form.Group>
 
                 </Container>

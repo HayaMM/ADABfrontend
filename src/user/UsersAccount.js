@@ -26,10 +26,10 @@ export default class UsersAccount extends Component {
                 console.log(error);
             })
     }
-    viewqoute = () =>{
+    viewqoute = () => {
         console.log("click view")
         this.loaduserQuote();
-        console.log("heerre "+this.state.quotes);
+        console.log("heerre " + this.state.quotes);
     }
     isviewqoutemood = (is) => {
         this.setState({
@@ -39,31 +39,31 @@ export default class UsersAccount extends Component {
     }
     render() {
         let isimg = this.props.image ? `data:image/jpg;base64,${this.props.theimage}` : Images;
-        const isqoute = this.state.isviewqoute ? 
-        <div className='popup'>
-        <div  className='popup_inner q' >
-            
-        {this.state.quotes.map((quote, index) =>
-                    <div key={index}>
-                       <MyQuotes  {...quote } id={quote.id} email={this.props.userEmail} loadQuote={this.loaduserQuote} />
-                    </div>)}
-            <Button onClick={() => this.isviewqoutemood(false)}>back</Button>
-        </div>
-    </div>: null;
+        const isqoute = this.state.isviewqoute ?
+            <div className='popup'>
+                <div className='popup_inner q' >
+
+                    {this.state.quotes.map((quote, index) =>
+                        <div key={index}>
+                            <MyQuotes  {...quote} id={quote.id} email={this.props.userEmail} loadQuote={this.loaduserQuote} />
+                        </div>)}
+                    <Button onClick={() => this.isviewqoutemood(false)}>Back</Button>
+                </div>
+            </div> : null;
         return (
             <div>
-               <div className="stdiv">
-         <div className="h">
-             <h2 className="h">{this.props.user.firstName} Information</h2>
+                <div className="stdiv">
+                    <div className="h">
+                        <h2 className="h">{this.props.user.firstName} Information</h2>
           Name:  <b>{this.props.user.firstName} {this.props.user.lastName}</b><br />
           Date Of Birth:<b> {this.props.user.dateofBirth}</b><br />
           profile image :   <br /> <br /> <img className="profileimg" src={isimg} alt="profile picture"  ></img>
-          <button onClick={() => this.isviewqoutemood(true)}>View Qoute</button> 
-          <button onClick={()=> this.props.onclickdetalis()}>Back to Users</button> 
-         </div>
+                        <Button onClick={() => this.isviewqoutemood(true)}>View Quotes</Button>
+                        <Button onClick={() => this.props.onclickdetalis()}>Back to Users</Button>
+                    </div>
 
-     </div>
-     {isqoute}
+                </div>
+                {isqoute}
             </div>
         )
     }

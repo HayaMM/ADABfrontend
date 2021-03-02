@@ -44,12 +44,12 @@ export default class EditProfile extends Component {
     }
 
     checkPassword = () => {
-        console.log("old pass "+this.state.password)
-        console.log("new password "+this.state.newPassword)
-        console.log("new password "+this.state.confpassword)
+        console.log("old pass " + this.state.password)
+        console.log("new password " + this.state.newPassword)
+        console.log("new password " + this.state.confpassword)
 
         if (this.state.newPassword === this.state.confpassword && (!!this.state.newPassword || !!this.state.confpassword)) {
-            this.changePassword(this.state.password,this.state.newPassword);
+            this.changePassword(this.state.password, this.state.newPassword);
         } else if (!this.state.password && !this.state.confpassword) {
             console.log("full the fields please");
             this.setState({
@@ -103,13 +103,13 @@ export default class EditProfile extends Component {
                         "maxWidth": "500mm"
                     }} >
                     <Toast.Header style={{ color: 'yellow' }}>
-                       <h5> <strong> warning</strong></h5>
+                        <h5> <strong> warning</strong></h5>
                     </Toast.Header>
                     <Toast.Body><h3><strong>{this.state.errors}</strong></h3></Toast.Body>
                 </Toast>
             ) : null;
 
-            let iseditpicmood = !this.state.isEditpss ?  <Container>
+        let iseditpicmood = !this.state.isEditpss ? <Container>
             <Form.Group>
                 <TextField fullWidth type="text" name="firstName" label="First Name" placeholder="Enter your First Name" onChange={this.handleChange} value={this.state.newUser.firstName} ></TextField>
             </Form.Group>
@@ -124,55 +124,55 @@ export default class EditProfile extends Component {
             </Form.Group>
 
             <Button className="btn" variant="primary" block onClick={this.handleSubmit}>eddit profile</Button>
-            <Button className="btn" variant="primary" block  onClick={() => this.iseditpicmood(true)}>change Password</Button>
+            <Button className="btn" variant="primary" block onClick={() => this.iseditpicmood(true)}>change Password</Button>
 
-           
-        </Container> :  <Container>
+            <br /><br />
+        </Container> : <Container>
                 {message}
-                    <Form.Group>
-                        <TextField
-                            fullWidth
-                            type="password"
-                            label=" old Password"
-                            name="password"
-                            error={this.state.passwordfield ? true : false}
-                            placeholder="Enter your new password"
-                            onChange={this.changepasswordHandler}
-                            variant="filled"
+                <Form.Group>
+                    <TextField
+                        fullWidth
+                        type="password"
+                        label=" old Password"
+                        name="password"
+                        error={this.state.passwordfield ? true : false}
+                        placeholder="Enter your new password"
+                        onChange={this.changepasswordHandler}
+                        variant="filled"
 
-                        />
-                        <TextField
-                            fullWidth
-                            type="password"
-                            label=" New Password"
-                            name="newPassword"
-                            error={this.state.passwordfield ? true : false}
-                            placeholder="Enter your new password"
-                            onChange={this.changepasswordHandler}
-                            variant="filled"
+                    />
+                    <TextField
+                        fullWidth
+                        type="password"
+                        label=" New Password"
+                        name="newPassword"
+                        error={this.state.passwordfield ? true : false}
+                        placeholder="Enter your new password"
+                        onChange={this.changepasswordHandler}
+                        variant="filled"
 
-                        />
-                        <TextField
-                            fullWidth
-                            label="Confirm Password"
-                            type="password"
-                            name='confpassword'
-                            error={this.state.comfpasswordfield ? true : false}
-                            placeholder="Confirm your new password"
-                            onChange={this.changepasswordHandler}
-                            variant="filled"
+                    />
+                    <TextField
+                        fullWidth
+                        label="Confirm Password"
+                        type="password"
+                        name='confpassword'
+                        error={this.state.comfpasswordfield ? true : false}
+                        placeholder="Confirm your new password"
+                        onChange={this.changepasswordHandler}
+                        variant="filled"
 
-                        />
-                    </Form.Group>
+                    />
+                </Form.Group>
 
-                    <Button className="btn" variant="primary" block onClick={this.checkPassword}>change Password </Button>
-                    <Button className="btn" variant="primary" block  onClick={() => this.iseditpicmood(false)}>back</Button>
+                <Button className="btn" variant="primary" block onClick={this.checkPassword}>change Password </Button>
+                <Button className="btn" variant="primary" block onClick={() => this.iseditpicmood(false)}>back</Button>
 
-                </Container>;
+            </Container>;
         return (
             <div >
-               {iseditpicmood}
-               
+                {iseditpicmood}
+
             </div>
         )
     }

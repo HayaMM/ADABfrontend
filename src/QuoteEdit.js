@@ -57,6 +57,7 @@ export default class QuoteEdit extends Component {
 
                     {/* <input type="hidden" value=""></input> */}
                     <Button className="btn" variant="primary" onClick={this.handleSubmit} type="submit" >Edit</Button>
+                    <br /><br />
                 </Container>
             </div>
         )

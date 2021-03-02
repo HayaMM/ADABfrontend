@@ -78,6 +78,16 @@ footer{
   text-indent: 50px;
   text-align: center;
 }
+.stdiv2{
+  background-color: lightgrey;
+  border: 15px solid#4b4c53;
+  padding: 45px;
+  margin: 20px;
+   margin: auto;
+  width: 50%;
+  text-indent: 50px;
+  text-align: center;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -8,6 +8,7 @@
 .menu {
   background-color: #4b4c53;
   width: 100%;
+  height: auto;
   font-size: x-large;
   text-transform: uppercase;
   color: rgba(17, 16, 16, 0.8);
@@ -15,7 +16,8 @@
   cursor: pointer;
   pointer-events: none;
   bottom: 20px;
-
+  position:absolute;
+    margin-right:10px;
 }
 .menu:hover {
   pointer-events: all;

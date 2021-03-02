@@ -8,7 +8,7 @@ export default class MyQuotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            likes: props.liked
+            likes: props.liked,
             islikes : false
 
         }
@@ -51,6 +51,7 @@ export default class MyQuotes extends Component {
                 {this.props.qreivew}
                 {isliked}
                 <hr />
+                </p>
 
 
             </div>

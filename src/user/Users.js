@@ -7,11 +7,14 @@ export default class Users extends Component {
 
     render() {
         console.log(this.props.isUserRole)
-        const admin= this.props.isUserRole ? <div>{this.props.firstName}
+        const admin= this.props.isUserRole ? <div>
         {(this.state.Role ==="ROLE_USER") ? <button onClick={()=>{this.props.deleteAccount(this.props.id)}}>Delete account</button> : null}</div>: null;
         return (
             <div>
-           {admin}
+          {admin}
+          {this.props.emailAddress} 
+          <button onClick={()=>{this.props.loadUserDetails(this.props.emailAddress)}}>see More</button> 
+          
             </div>
         )
     }

@@ -57,6 +57,7 @@ footer{
   padding-right: 0;
   color: azure;
   text-align: center;
+  
 }
 .searchbar{
   width: 100%;
@@ -128,3 +129,33 @@ footer{
   90%  {opacity: 1;}
   100% {opacity: 0;}
 }
+
+/* ------------------------------------ */
+
+.likeButton {
+  display: inline-block;
+  position: relative;
+  font-size: 15mm;
+  cursor: pointer;
+}
+  .likeButton {
+    font-size: 3em;
+    color: rgb(255, 253, 253);
+     left: 50%;
+    top: 50%; 
+     transform: translate(-50%, -50%); 
+  }
+  .likeButton.liked{
+    font-size: 3em;
+    color : red;
+    left: 50%;
+    top: 50%; 
+     transform: translate(-50%, -50%); 
+   
+  }
+   
+  .likeButton.liked::after {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  

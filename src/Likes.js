@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./App.css";
 import axios from 'axios';
 import { Button } from 'react-bootstrap'
 export default class Likes extends Component {
@@ -8,6 +9,7 @@ export default class Likes extends Component {
             idlikes: false
         }
     }
+   
     togglelike = () => {
         if (this.props.islikes) {
             console.log("Dislikedd");
@@ -52,11 +54,16 @@ export default class Likes extends Component {
                     console.log(error);
                 })
         }
+        this.props.loadQuote();
     }
     render() {
+        console.log("what button "+this.props.isliked)
         return (
-            <div><br /><br />
-                <Button onClick={() => this.togglelike()}>Like it</Button>
+
+            <div>
+          <br /><br />
+            <div  className={`likeButton ${this.props.isliked}`} onClick={() => this.togglelike()}>♥</div>
+
             </div>
         )
     }

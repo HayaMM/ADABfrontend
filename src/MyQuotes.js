@@ -64,8 +64,6 @@ export default class MyQuotes extends Component {
               &nbsp; By {this.props.qwriter}
                     <br /><br />
                   User: {this.props.user.firstName} {this.props.user.lastName}
-                    <Likes email={this.props.email} quoteid={this.props.id} islikes={this.state.islikes}></Likes>
-                    <br /><br /> <hr />
         
                 <Likes email={this.props.email} quoteid={this.props.id} islikes={this.state.islikes} loadQuote={this.props.loadQuote} isliked={isliked}></Likes>
                 <br /><br />

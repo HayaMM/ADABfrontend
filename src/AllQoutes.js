@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import MyQuotes from './MyQuotes';
-import axios from 'axios';
+
 export default class AllQoutes extends Component {
     constructor(props) {
         super(props);
@@ -9,8 +9,9 @@ export default class AllQoutes extends Component {
             quotess: props.quotes
         }
     }
+   
     dynamicSearch = () => {
-        console.log("---"+this.state.quotess)
+        console.log("---" + this.state.quotess)
         return this.state.quotess.filter(quote => {
             return quote.qtitle.toLowerCase().includes(this.state.search.toLowerCase())
         })
@@ -20,7 +21,7 @@ export default class AllQoutes extends Component {
             search: e.target.value
         })
     }
- 
+
     render() {
         return (
 
@@ -30,7 +31,8 @@ export default class AllQoutes extends Component {
                 <input className="searchbar" type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
                 {this.dynamicSearch().map((quote, index) =>
                     <div key={index}>
-                        <MyQuotes {...quote } email= {this.props.email} />
+                        <MyQuotes {...quote } email= {this.props.email}/>
+                        <MyQuotes  {...quote } email={this.props.email} loadQuote={this.props.loadQuote} />
                     </div>)}
             </div>
 

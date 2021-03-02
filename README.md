@@ -7,14 +7,17 @@ The Backend for ADAB application [here](https://git.generalassemb.ly/ghaidhusall
 * Back end: 
 #### Technologies used: 
 ADAB Application uses a number of technologies:
-* Java.
-* Spring boot.
-* Tomcat server.
-* CSS , Bootstrap.
-* React.
-* MySQL.
+* Java, Spring Boot 
+* Server, Apache Tomcat
+* MySQL Database
+* React
+* Cascading Style Sheets and Bootstrap 
+* JavaScript and HTML
+* AWS, to deploy the web application
+* GitHub, group project
+* Git Bash
 #### Future Work:
-
+The user of **ADAB** will be able to follow friends and be a part of the community of adab lovers to share ,rate quotes and poems.
 #### Planning Documentation:
 
 ### User Story 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Quote from "./Quote";
 import QuoteEdit from './QuoteEdit'
 import axios from 'axios';
+import NewQuote from './NewQuote'
 export default class ListQuote extends Component {
     constructor(props) {
         super(props);
@@ -26,10 +27,12 @@ export default class ListQuote extends Component {
                 console.log(error);
             })
     }
+
     render() {
         console.log(this.state.quotes + "from list")
         return (
             <div>
+                <NewQuote user={this.props.user} addQuote={this.props.addQuote} />
                 <h2 className="h">My Quotes</h2>
                 {this.state.quotes.map((quote, index) =>
                     <div key={index}>

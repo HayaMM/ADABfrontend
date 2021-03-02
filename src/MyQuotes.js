@@ -16,6 +16,7 @@ export default class MyQuotes extends Component {
                     <br /> <br />&nbsp; ــــــ {this.props.qfrom}
               &nbsp; By {this.props.qwriter}
                     <hr />
+                     user:&nbsp;     {this.props.email.sub}
                     <br /><br /><Button >Like </Button>
                     <br /><br /><Button >DisLike </Button>
                 </p>

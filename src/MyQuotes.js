@@ -44,7 +44,8 @@ export default class MyQuotes extends Component {
                     <b>  《 &nbsp;  {this.props.qbody}  &nbsp;  》</b>
                     <br /> <br />&nbsp; ــــــ {this.props.qfrom}
               &nbsp; By {this.props.qwriter}
-                    <br />
+                    <br /><br />
+                  User: {this.props.user.firstName} {this.props.user.lastName}
                     <Likes email={this.props.email} quoteid={this.props.id} islikes={this.state.islikes}></Likes>
                     <br /><br /> <hr />
                     <div>  {this.props.qreivew}

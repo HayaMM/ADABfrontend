@@ -11,7 +11,6 @@ import FooterPage from './FooterPage'
 import HeaderPage from './HeaderPage'
 import Profile from './user/Profile';
 import "./App.css";
-import Video from './Video'
 export default class AdabApp extends Component {
 
   state = {

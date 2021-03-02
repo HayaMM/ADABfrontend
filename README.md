@@ -1,5 +1,5 @@
 ## ADAB Application:
-ADAB App is a web application that allows the user to sign up and log in to the website to perform the CRUD functionalities which are adding, editing, see the details of the Quotes, and deleting and the user can like or dislike the quotes, the user can also see the most like quote in ADAB website, the user can reset the password when forget the password. The app uses JWT for authentication and authorization. and there are three tables in the database: User, Quote, Liked.
+ADAB App is a web application that allows the user to sign up and log in to the website to perform the CRUD functionalities which are adding, editing, see the details of the Quotes, and deleting, the user can like or dislike the quotes, the user can also see the most like quote in ADAB website, the user can reset the password when forget the password. The app uses JWT for authentication and authorization. and there are three tables in the database: **User**, **Quote**, **Liked**.
 #### The Backend End side:
 The Backend for ADAB application [here](https://git.generalassemb.ly/ghaidhusall/ADABbackend).
 #### Deployed sites:
@@ -19,7 +19,7 @@ ADAB Application uses a number of technologies:
 #### Future Work:
 The user of **ADAB** will be able to follow friends and be a part of the community of adab lovers to share ,rate quotes and poems.
 #### Planning Documentation:
-
+The planning documentation for two weeks to build adab website [here](Planing.jpg)
 ### User Story 
 You can see the user stories for our app [here](userStory.md).
 ### Wireframes

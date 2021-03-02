@@ -11,7 +11,6 @@ import FooterPage from './FooterPage'
 import HeaderPage from './HeaderPage'
 import Profile from './user/Profile';
 import "./App.css";
-import Video from './Video'
 export default class AdabApp extends Component {
 
   state = {
@@ -130,7 +129,7 @@ export default class AdabApp extends Component {
             )}
         </nav>
         <div>
-          {/* <Video /> */}
+
           <Route path="/register" component={() => <Register register={this.registerHandler} />}></Route>
           {/* <Route path="/login" component={() => isUser ? <Home /> : <Login login={this.loginHandler} />}></Route> */}
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>

@@ -10,7 +10,7 @@ import Profile from './user/Profile';
 import ListQuote from './ListQuote'
 import UsersList from './user/UsersList'
 import AllQoutes from './AllQoutes';
-
+import Video from './Video'
 export default class Home extends Component {
 
     constructor(props) {
@@ -133,7 +133,7 @@ export default class Home extends Component {
                         <div className="item"><span><Link to="/myquote" style={{ color: 'inherit', textDecoration: 'none' }}>My Quote</Link></span></div>
                         <div className="item"><span ><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
                         <div className="item"><span ><Link to="/quotes" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
-                        <div className="item"><span>MixCloud</span></div>
+                        <div className="item"><span><Link to="/about" style={{ color: 'inherit', textDecoration: 'none' }}>About ADAB</Link></span></div>
                         {"Welcome " + this.props.user.sub} {"  "}
                     </div>
                     <div>
@@ -143,7 +143,10 @@ export default class Home extends Component {
                         />}></Route>
                         <Route path="/profile" component={() => <Profile profile={this.props.user} />}></Route>
                         <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub} />}></Route>
+
                         <Route path="/quotes" component={() => <AllQoutes quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} loadQuote={this.loadQuote} />}></Route>
+                        <Route path="/about" component={() => <Video />}></Route>
+
 
 
                         {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}

@@ -18,13 +18,13 @@ export default class MyQuotes extends Component {
         this.getlike();
     }
     getlike = () => {
-        axios.get(`/adab//liked/islike?useremail=${this.props.email.sub}&qouteid=${this.props.id}`, {
+        axios.get(`/adab//liked/islike?useremail=${this.props.email}&qouteid=${this.props.id}`, {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
         }
         ).then(response => {
-            console.log("likes" + response)
+            console.log(this.props.email+"likes iiiiiiii" + response.data )
             this.setState({
                 islikes: response.data
             })

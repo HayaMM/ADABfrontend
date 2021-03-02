@@ -31,8 +31,7 @@ export default class AllQoutes extends Component {
                 <input className="searchbar" type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
                 {this.dynamicSearch().map((quote, index) =>
                     <div key={index}>
-                        <MyQuotes {...quote } email= {this.props.email}/>
-                        <MyQuotes  {...quote } email={this.props.email} loadQuote={this.props.loadQuote} />
+                        <MyQuotes  {...quote } email={this.props.email.sub} loadQuote={this.props.loadQuote} />
                     </div>)}
             </div>
 

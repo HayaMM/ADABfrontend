@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Users from './Users'
 import axios from 'axios';
+
 export default class UsersList extends Component {
     constructor(props){
         super(props);
@@ -18,7 +19,7 @@ export default class UsersList extends Component {
          loadUserList =()=>{
              axios.get("/adab/user/index")
              .then(response =>{
-                 console.log(response)
+                 console.log("userss "+response.data)
                  this.setState({
                      users: response.data
                  })
@@ -46,7 +47,7 @@ export default class UsersList extends Component {
             .then(response =>{
                 console.log("info !")
                 console.log(response)
-                if(response.data.userRole=="ROLE_ADMINS"){
+                if(response.data.userRole=="ROLE_ADMIN"){
                     this.setState({
                         isUserRole: true
                     } )
@@ -58,19 +59,7 @@ export default class UsersList extends Component {
             })
         }
         
-        loadUserDetails=()=>{
-            axios.get(`/adab/user/detail?emailAddress=${this.props.userEmail}`)
-            .then(response =>{
-                console.log(response)
-                this.setState({
-                    users: response.data
-                })
-            })
-            .catch(error =>{
-                console.log("Error retreiving Account info !!");
-                console.log(error);
-            })
-        }
+       
     render() {
         return (
             <div>
@@ -78,7 +67,7 @@ export default class UsersList extends Component {
                 <ul>
                     {this.state.users.map((user, index) =>
                     <div key={index}>
-                    <Users {...user} isUserRole={this.state.isUserRole}  deleteAccount ={this.deleteAccount} loadUserDetails={this.loadUserDetails} />
+                    <Users {...user} isUserRole={this.state.isUserRole} userEmail={this.props.userEmail} deleteAccount ={this.deleteAccount}  />
                     </div>)}
                     
                 </ul>

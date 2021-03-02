@@ -79,3 +79,15 @@ html, body, .app {
     border: 10px solid #4b4c53;
 
   }
+  .popup_inner.q {
+    position: absolute;
+    left:1%;
+    right: 1%;
+    top: 4%;
+    bottom: 4%;
+    margin: auto;
+    background: white;
+    border: 10px solid #4b4c53;
+    overflow-y:auto
+
+  }

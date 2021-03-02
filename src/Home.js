@@ -30,6 +30,7 @@ export default class Home extends Component {
     componentDidMount() {
         this.loadQuote();
     }
+    
     loadQuote = () => {
         axios.get("/adab/quote/index")
             .then(response => {
@@ -143,7 +144,7 @@ export default class Home extends Component {
                         <Route path="/myquote" component={() => <ListQuote user={this.props.user} addQuote={this.addQuote} deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} email={this.props.user}
                         />}></Route>
                         <Route path="/profile" component={() => <Profile profile={this.props.user} />}></Route>
-                        <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub} />}></Route>
+                        <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub}  />}></Route>
 
                         <Route path="/quotes" component={() => <AllQoutes quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} loadQuote={this.loadQuote} />}></Route>
                         <Route path="/about" component={() => <Video />}></Route>

@@ -129,7 +129,7 @@ export default class Home extends Component {
                     <div className="menu">
                         <div className="label">Main Menu</div>
                         <div className="spacer"></div>
-                        <div className="item"><span ><Link to="/addquote" style={{ color: 'inherit', textDecoration: 'none' }}>Add Quote</Link></span></div>
+                        {/* <div className="item"><span ><Link to="/addquote" style={{ color: 'inherit', textDecoration: 'none' }}>Add Quote</Link></span></div> */}
                         <div className="item"><span><Link to="/myquote" style={{ color: 'inherit', textDecoration: 'none' }}>My Quote</Link></span></div>
                         <div className="item"><span ><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
                         <div className="item"><span ><Link to="/quotes" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
@@ -138,8 +138,8 @@ export default class Home extends Component {
                     </div>
                     <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
-                        <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route>
-                        <Route path="/myquote" component={() => <ListQuote deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} email={this.props.user}
+                        {/* <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route> */}
+                        <Route path="/myquote" component={() => <ListQuote user={this.props.user} addQuote={this.addQuote} deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} email={this.props.user}
                         />}></Route>
                         <Route path="/profile" component={() => <Profile profile={this.props.user} />}></Route>
                         <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub} />}></Route>

@@ -70,8 +70,7 @@ export default class EditProfile extends Component {
     changePassword = (pw, npw) => {
         axios.post(`${this.props.url}/user/changepassword?id=${this.props.user.id}`, {
             password: pw,
-            newPassword: npw
-        } , {
+            newPassword: npw,
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }

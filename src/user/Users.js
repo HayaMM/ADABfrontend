@@ -25,8 +25,8 @@ export default class Users extends Component {
         const isseemore = this.state.isseemore ? <UsersAccount user={this.props} onclickdetalis={this.onclickdetalis} userEmail={this.props.userEmail} loadQuote={this.loadQuote}></UsersAccount> :
             <div>
                 <b><div className="h"><h4>{this.props.firstName} {this.props.lastName}</h4></div><img className="profileimg profile" src={isimg} alt="profile picture"  ></img></b><br />
-                <br />       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                   <Button onClick={() => this.onclickdetalis()}>See more</Button>
+                <br />
+                <Button onClick={() => this.onclickdetalis()}>See more</Button>
                 <br /> <br />          {admin}
             </div>;
 

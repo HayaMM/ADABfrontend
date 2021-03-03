@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
 import Image from './Image'
-import { Container, Form, Button } from 'react-bootstrap'
-
+import { Button } from 'react-bootstrap'
+import { BrowserRouter as Router, Link } from "react-router-dom";
 export default class UserProfile extends Component {
-
+clicked = () => {
+    console.log("logout")
+    this.props.onLogoutHandler();
+}
     render() {
         return (
+            <div>
+            <h2 className="h">User's Profile</h2>
+
             <div className="stdiv">
+                <Router>
+                <Button className="smlbtn"> <Link to="/logout" style={{ color: 'inherit', textDecoration: 'none' }}onClick={() => this.clicked()}>Logout ?</Link></Button>
+                </Router>
                 <div className="h">
                     <h2 className="h">My Information</h2>
                     {/* user_id:  {this.props.user.id} <br/> */}
@@ -20,6 +29,7 @@ export default class UserProfile extends Component {
 
                 </div>
 
+            </div>
             </div>
         )
     }

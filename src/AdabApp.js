@@ -102,7 +102,7 @@ export default class AdabApp extends Component {
       isUser: false,
       user: null
     });
-  };
+  }
 
   render() {
     const { isUser } = this.state;
@@ -117,31 +117,23 @@ export default class AdabApp extends Component {
     return (
       <Router>
         <HeaderPage />
-        <nav>
-          {message} {successMessage} {isUser ? (
-            <div>
-
-              <Link to="/logout" onClick={this.onLogoutHandler}>Logout </Link>{" "}
-            </div>
+        
+        <div className="appdiv">
+        {message} {successMessage} 
+        {isUser ? (
+            <div className="appdiv"></div>
           ) : (
-              <div>
+            <div className="appdiv">
                 <Link to="/register">Register</Link> {' '}
                 <Link to="/login">Login</Link> {' '}
               </div>
             )}
-        </nav>
-        <div>
-          {/* <Video /> */}
-          <Route path="/register" component={() => isUser ? <Home user={this.state.user} /> : <Register register={this.registerHandler} />}></Route>
-          {/* <Route path="/login" component={() => isUser ? <Home /> : <Login login={this.loginHandler} />}></Route> */}
+            </div>
+          <Route path="/register" component={() => isUser ? <Home user={this.state.user} onLogoutHandler={() => this.onLogoutHandler()}/> : <Register register={this.registerHandler} />}></Route>
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
-          <Route path="/profile" component={() => <Profile profile={this.state.user} />}></Route>
-
-          {/* <Route path="/register" component={() => <Register register={this.registerHandler} name="userRole" value="ROLE_USER" />}></Route> */}
-          <Route path="/login" component={() => isUser ? <Home user={this.state.user} /> : <Login login={this.loginHandler} />}></Route>
-
+          <Route path="/login" component={() => isUser ? <Home user={this.state.user} onLogoutHandler={() => this.onLogoutHandler()}/> : <Login login={this.loginHandler} />}></Route>
           <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
-        </div>
+        
         <FooterPage />
       </Router>
     )

@@ -6,6 +6,9 @@ body {
   background-color:  lightgrey;
   
 }
+.appdiv{
+  background-color:  #4b4c53;
+}
 .wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

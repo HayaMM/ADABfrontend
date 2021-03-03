@@ -31,7 +31,11 @@ export default class UsersList extends Component {
         this.TypeofUser();
     }
     loadUserList = () => {
-        axios.get("/adab/user/index")
+        axios.get("/adab/user/index",{
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
             .then(response => {
                 console.log("userss " + response.data)
                 this.setState({
@@ -44,7 +48,11 @@ export default class UsersList extends Component {
             })
     }
     deleteAccount = (id) => {
-        axios.delete(`/adab/user/delete?id=${id}`)
+        axios.delete(`/adab/user/delete?id=${id}`,{
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
             .then(response => {
                 console.log("Deleted!")
                 console.log(response)
@@ -57,7 +65,11 @@ export default class UsersList extends Component {
     }
     TypeofUser = () => {
         console.log(this.state.isUserRole)
-        axios.get(`/adab/user/info?emailAddress=${this.props.userEmail}`)
+        axios.get(`/adab/user/info?emailAddress=${this.props.userEmail}`,{
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
             .then(response => {
                 console.log("info !")
                 console.log(response)

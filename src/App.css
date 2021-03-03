@@ -206,3 +206,15 @@ footer{
   padding: 10px;
 } 
 /* ------------------------- */
+
+span {
+  transition: color 0.5s ease;
+  
+}
+.appbar:hover span {
+  color: #ff0000;
+}
+.appbar{
+  display: inline-block;
+  margin-right: 30px;
+}

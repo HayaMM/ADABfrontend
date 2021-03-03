@@ -124,8 +124,8 @@ export default class AdabApp extends Component {
             <div className="appdiv"></div>
           ) : (
             <div className="appdiv">
-                <Link to="/register">Register</Link> {' '}
-                <Link to="/login">Login</Link> {' '}
+                <div className="appbar"><span><Link to="/register" style={{ color: 'inherit', textDecoration: 'none' }}><h4>Register</h4></Link> </span></div>
+                <div className="appbar"><span><Link to="/login" style={{ color: 'inherit', textDecoration: 'none' }}><h4>Login</h4></Link></span></div>
               </div>
             )}
             </div>

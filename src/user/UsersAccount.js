@@ -14,7 +14,11 @@ export default class UsersAccount extends Component {
         }
     }
     loaduserQuote = () => {
-        axios.get(`/adab/user/indexquote?emailAddress=${this.props.user.emailAddress}`)
+        axios.get(`/adab/user/indexquote?emailAddress=${this.props.user.emailAddress}` ,{
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
             .then(response => {
                 console.log("quotes from load" + response)
                 this.setState({

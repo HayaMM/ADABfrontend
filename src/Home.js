@@ -32,7 +32,11 @@ export default class Home extends Component {
     }
     
     loadQuote = () => {
-        axios.get("/adab/quote/index")
+        axios.get("/adab/quote/index" ,{
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
             .then(response => {
                 console.log("quotes from load" + response)
                 this.setState({
@@ -125,13 +129,12 @@ export default class Home extends Component {
         ) : null;
         return (
             <div className="divhome">
-                
+                {message}
                 <Router>
 
                     <div className="menu">
                         <div className="label">Main Menu</div>
                         <div className="spacer"></div>
-                        {/* <div className="item"><span ><Link to="/addquote" style={{ color: 'inherit', textDecoration: 'none' }}>Add Quote</Link></span></div> */}
                         <div className="item"><span><Link to="/myquote" style={{ color: 'inherit', textDecoration: 'none' }}>My Quote</Link></span></div>
                         <div className="item"><span ><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
                         <div className="item"><span ><Link to="/quotes" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
@@ -152,7 +155,7 @@ export default class Home extends Component {
                         <Route path="/about" component={() => <Video />}></Route>
 
                 </Router>
-                {message}
+                
             </div>
         )
     }

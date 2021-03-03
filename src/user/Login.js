@@ -36,7 +36,7 @@ export default class Login extends Component {
             <Form.Group>
                 <TextField fullWidth type="password" name="password" label="Password" placeholder="Enter your Password" variant="filled" onChange={this.changeHandler}></TextField>
             </Form.Group>
-            <Button className="btn" variant="primary" block   onClick={this.loginHandler}>Login</Button>
+            <Button className="btn" variant="primary" block   onClick={this.loginHandler}>Login</Button><hr/>
             <Button className="btn" variant="primary" block  onClick={() => this.switch(true)}>Forgot password</Button>
             <br /><br />
         </Container>) : <ForgotPassword switch={this.switch} />

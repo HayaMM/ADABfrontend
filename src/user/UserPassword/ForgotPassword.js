@@ -31,7 +31,7 @@ export default class ForgotPassword extends Component {
 
     }
     changepasswordHandler = (email) => {
-        axios.post(`/adab/user/forgotpassword?emailAddress=${email}`)
+        axios.post(`${this.props.url}/user/forgotpassword?emailAddress=${email}`)
             .then(response => {
                 console.log(" " + response.data)
                 if (response.data !== null) {

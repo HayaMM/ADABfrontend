@@ -41,7 +41,7 @@ export default class AllQoutes extends Component {
         <div className="listing" >
         {this.dynamicSearch().map((quote, index) =>
           <div key={index} >
-                <MyQuotes  {...quote } email={this.props.email.sub} loadQuote={this.props.loadQuote} />
+                <MyQuotes  {...quote } email={this.props.email.sub} url={this.props.url} loadQuote={this.props.loadQuote} />
                 <br />
             </div>
             )}

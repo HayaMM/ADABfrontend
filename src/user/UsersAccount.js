@@ -14,7 +14,7 @@ export default class UsersAccount extends Component {
         }
     }
     loaduserQuote = () => {
-        axios.get(`/adab/user/indexquote?emailAddress=${this.props.user.emailAddress}` ,{
+        axios.get(`${this.props.url}/user/indexquote?emailAddress=${this.props.user.emailAddress}` ,{
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -49,7 +49,7 @@ export default class UsersAccount extends Component {
 
                     {this.state.quotes.map((quote, index) =>
                         <div key={index}>
-                            <MyQuotes  {...quote} id={quote.id} email={this.props.userEmail} loadQuote={this.loaduserQuote} />
+                            <MyQuotes  {...quote} id={quote.id} email={this.props.userEmail} url={this.props.url} loadQuote={this.loaduserQuote} />
                         </div>)}
                     <Button onClick={() => this.isviewqoutemood(false)}>Back</Button>
                 </div>

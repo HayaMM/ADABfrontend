@@ -68,7 +68,7 @@ export default class EditProfile extends Component {
 
     }
     changePassword = (pw, npw) => {
-        axios.post(`/adab/user/changepassword?id=${this.props.user.id}`, {
+        axios.post(`${this.props.url}/user/changepassword?id=${this.props.user.id}`, {
             password: pw,
             newPassword: npw
         } , {

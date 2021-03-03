@@ -27,7 +27,7 @@ export default class ListQuote extends Component {
     }
     loaduserQuote = () => {
         console.log(this.props.email.sub)
-        axios.get(`/adab/user/indexquote?emailAddress=${this.props.email.sub}`,{
+        axios.get(`${this.props.url}/user/indexquote?emailAddress=${this.props.email.sub}`,{
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }

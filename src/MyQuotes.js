@@ -17,7 +17,7 @@ export default class MyQuotes extends Component {
         this.getlike();
     }
     getlike = () => {
-        axios.get(`/adab//liked/islike?useremail=${this.props.email}&qouteid=${this.props.id}`, {
+        axios.get(`${this.props.url}/liked/islike?useremail=${this.props.email}&qouteid=${this.props.id}`, {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -33,7 +33,7 @@ export default class MyQuotes extends Component {
                 console.log("Error returning likes!!");
                 console.log(error);
             })
-        axios.get(`/adab/quote/detail?id=${this.props.id}`, {
+        axios.get(`${this.props.url}/quote/detail?id=${this.props.id}`, {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -66,7 +66,7 @@ export default class MyQuotes extends Component {
                   User: <b>{this.props.user.firstName} {this.props.user.lastName}</b>
                     </div>
                     <div className="downbody">
-                        <Likes email={this.props.email} quoteid={this.props.id} islikes={this.state.islikes} loadQuote={this.props.loadQuote} isliked={isliked}></Likes>
+                        <Likes email={this.props.email} url={this.props.url} quoteid={this.props.id} islikes={this.state.islikes} loadQuote={this.props.loadQuote} isliked={isliked}></Likes>
                         {this.state.likes} Likes
                 </div>
 

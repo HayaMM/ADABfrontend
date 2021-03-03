@@ -42,7 +42,7 @@ export default class AdabApp extends Component {
 
   // method for rigstration
   registerHandler = (user) => {
-    axios.post("adab/user/registration", user)
+    axios.post(`${this.props.url}/user/registration`, user)
       .then((response) => {
         console.log(response);
         this.setState({
@@ -60,7 +60,7 @@ export default class AdabApp extends Component {
 
   // method for login 
   loginHandler = (user) => {
-    axios.post("adab/user/authenticate", user)
+    axios.post(`${this.props.url}/user/authenticate`, user)
       .then((response) => {
         console.log(response);
 
@@ -129,10 +129,10 @@ export default class AdabApp extends Component {
               </div>
             )}
             </div>
-          <Route path="/register" component={() => isUser ? <Home user={this.state.user} onLogoutHandler={() => this.onLogoutHandler()}/> : <Register register={this.registerHandler} />}></Route>
-          <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
-          <Route path="/login" component={() => isUser ? <Home user={this.state.user} onLogoutHandler={() => this.onLogoutHandler()}/> : <Login login={this.loginHandler} />}></Route>
-          <Route path="/resetpassword" component={() => <ResetPassword />}></Route>
+          <Route path="/register" component={() => isUser ? <Home user={this.state.user} url={this.props.url} onLogoutHandler={() => this.onLogoutHandler()}/> : <Register register={this.registerHandler} />}></Route>
+          <Route path="/resetpassword" component={() => <ResetPassword url={this.props.url} />}></Route>
+          <Route path="/login" component={() => isUser ? <Home user={this.state.user} url={this.props.url} onLogoutHandler={() => this.onLogoutHandler()}/> : <Login url={this.props.url} login={this.loginHandler} />}></Route>
+          {/* <Route path="/resetpassword" component={() => <ResetPassword />}></Route> */}
         
         <FooterPage />
       </Router>

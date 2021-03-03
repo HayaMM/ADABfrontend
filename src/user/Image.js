@@ -60,9 +60,9 @@ export default class Image extends Component {
                         onChange={this.changeHandler}
                         encType="multipart/form-data"
                     />
-                    <Button onClick={() => this.clicked()}>add</Button>
+                    <Button className="smlbtn"onClick={() => this.clicked()}>add</Button>
                     <br />   <br />
-                    <Button onClick={() => this.iseditpicmood(false)}>back</Button>
+                    <Button className="smlbtn" onClick={() => this.iseditpicmood(false)}>back</Button>
                 </Form.Group>
             </Container>
             ;

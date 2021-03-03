@@ -109,6 +109,7 @@ export default class Home extends Component {
             showA: !this.state.showA
         })
     }
+    
     render() {
 
         console.log("quotes " + this.state.quotes)
@@ -123,8 +124,8 @@ export default class Home extends Component {
             </Toast>
         ) : null;
         return (
-            <div>
-                {message}
+            <div className="divhome">
+                
                 <Router>
 
                     <div className="menu">
@@ -139,12 +140,10 @@ export default class Home extends Component {
                         <div className="item"><span><Link to="/about" style={{ color: 'inherit', textDecoration: 'none' }}>About ADAB</Link></span></div>
                         <p>{"Welcome " + this.props.user.sub} {"  "}</p>
                     </div>
-                    <div>
-                        {/* <Route exact path="/" component={Home}></Route> */}
-                        {/* <Route path="/addquote" component={() => <NewQuote user={this.props.user} addQuote={this.addQuote} />}></Route> */}
+                   
                         <Route path="/myquote" component={() => <ListQuote user={this.props.user} addQuote={this.addQuote} deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} email={this.props.user}
                         />}></Route>
-                        <Route path="/profile" component={() => <Profile profile={this.props.user} />}></Route>
+                        <Route path="/profile" component={() => <Profile profile={this.props.user} onLogoutHandler={() => this.props.onLogoutHandler()}/>}></Route>
                         <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub}  />}></Route>
 
                         <Route path="/quotes" component={() => <AllQoutes quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} loadQuote={this.loadQuote} pop={false}/>}></Route>
@@ -152,13 +151,8 @@ export default class Home extends Component {
 
                         <Route path="/about" component={() => <Video />}></Route>
 
-
-
-                        {/* <Route path="/editquote" component={() => <EditQuote editQuote={this.editQuote} />}></Route> */}
-
-
-                    </div>
                 </Router>
+                {message}
             </div>
         )
     }

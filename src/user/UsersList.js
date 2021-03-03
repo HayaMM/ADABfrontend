@@ -85,7 +85,7 @@ export default class UsersList extends Component {
                     {this.dynamicSearch().map((user, index) =>
 
                         <div key={index}>
-                            <Users {...user} isUserRole={this.state.isUserRole} userEmail={this.props.userEmail} deleteAccount={this.deleteAccount} />
+                            <Users {...user} isUserRole={this.state.isUserRole} userEmail={this.props.userEmail} deleteAccount={this.deleteAccount} theimage={user.image}/>
                         </div>)}
 
                 </div>

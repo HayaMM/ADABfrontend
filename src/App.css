@@ -3,10 +3,11 @@
 }
 body {
   margin: 0 0 100px; 
-  /* background-color:  lightgrey; */
    background-image:  url("./user/img/imageedit.png");
-   
   
+}
+.appdiv{
+  background-color:  #4b4c53;
 }
 .wrapper {
   display: grid;

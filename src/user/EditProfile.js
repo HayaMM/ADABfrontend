@@ -123,8 +123,8 @@ export default class EditProfile extends Component {
                 <TextField fullWidth type="email" name="emailAddress" label=" Email Address" placeholder="Enter your Email Address" onChange={this.handleChange} value={this.state.newUser.emailAddress}></TextField>
             </Form.Group>
 
-            <Button className="btn" variant="primary" block onClick={this.handleSubmit}>eddit profile</Button>
-            <Button className="btn" variant="primary" block onClick={() => this.iseditpicmood(true)}>change Password</Button>
+            <Button className="btn" variant="primary" block onClick={this.handleSubmit}>Edit profile</Button>
+            <Button className="btn" variant="primary" block onClick={() => this.iseditpicmood(true)}>Change Password</Button>
 
             <br /><br />
         </Container> : <Container>
@@ -167,7 +167,7 @@ export default class EditProfile extends Component {
 
                 <Button className="btn" variant="primary" block onClick={this.checkPassword}>change Password </Button>
                 <Button className="btn" variant="primary" block onClick={() => this.iseditpicmood(false)}>back</Button>
-
+                <br /><br />
             </Container>;
         return (
             <div >

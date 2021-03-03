@@ -30,7 +30,7 @@ export default class Image extends Component {
         const formData = new FormData();
         formData.append("file", this.state.thefile);
 
-        axios.post(`${this.props.url}adab/user/image/fileupload?id=${this.props.id}`, formData ,{
+        axios.post(`${this.props.url}/user/image/fileupload?id=${this.props.id}`, formData ,{
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }

@@ -7,8 +7,20 @@ export default class ListQuote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            quotes: []
+            quotes: [],
+            search: ''
         }
+    }
+    dynamicSearch = () => {
+        console.log("---" + this.state.quotes)
+        return this.state.quotes.filter(quote => {
+            return quote.qtitle.toLowerCase().includes(this.state.search.toLowerCase())
+        })
+    }
+    editSearch = (e) => {
+        this.setState({
+            search: e.target.value
+        })
     }
     componentDidMount() {
         this.loaduserQuote();
@@ -34,7 +46,9 @@ export default class ListQuote extends Component {
             <div>
                 <NewQuote user={this.props.user} addQuote={this.props.addQuote} />
                 <h2 className="h">My Quotes</h2>
-                {this.state.quotes.map((quote, index) =>
+                <input className="searchbar" type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
+                <br /><br />
+                {this.dynamicSearch().map((quote, index) =>
                     <div key={index}>
                         <Quote {...quote} deleteQuote={this.props.deleteQuote} editView={this.props.editView} />
                         {(this.props.isEdit && this.props.clickedQuoteId === quote.id) ? <QuoteEdit quote={quote} editQuote={this.props.editQuote} /> : null}

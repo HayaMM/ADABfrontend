@@ -17,7 +17,7 @@ export default class ForgotPassword extends Component {
     checkemail = (email) => {
         console.log(!this.state.emailAddress);
 
-        if (!!this.state.emailAddress) {
+        if (!this.state.emailAddress) {
             this.changepasswordHandler(email);
         } else {
             console.log("should not be empty");

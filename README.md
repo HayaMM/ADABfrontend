@@ -8,9 +8,9 @@ The Git repository of ADAB's BackEnd: [here](https://git.generalassemb.ly/ghaidh
 
 ### **Deployed** sites:
 * **Front end**: 
-[here]().
+[here](https://pages.git.generalassemb.ly/ghaidhusall/ADABfrontend/).
 * **Back end**: 
-[here]().
+[here](http://adab-env.eba-nafjbdmq.us-east-2.elasticbeanstalk.com).
 
 ### **Technologies** used: 
 **ADAB** used a number of technologies:
@@ -86,6 +86,7 @@ The user of **ADAB** will be able to follow friends and be a part of the communi
 
 ### Resources
 *  **https://www.codejava.net/frameworks/spring-boot/spring-security-forgot-password-tutorial**
+*  **https://create-react-app.dev/docs/adding-custom-environment-variables**
 *  **https://jwt.io/**
 *  **https://material-ui.com/components/text-fields/**
 *  **https://levelup.gitconnected.com/building-a-simple-dynamic-search-bar-in-react-js-f1659d64dfae?gi=216690603c1d**

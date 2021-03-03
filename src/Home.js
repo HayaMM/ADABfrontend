@@ -134,9 +134,10 @@ export default class Home extends Component {
                         <div className="item"><span><Link to="/myquote" style={{ color: 'inherit', textDecoration: 'none' }}>My Quote</Link></span></div>
                         <div className="item"><span ><Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link></span></div>
                         <div className="item"><span ><Link to="/quotes" style={{ color: 'inherit', textDecoration: 'none' }}>All Quote</Link></span></div>
+                        <div className="item"><span ><Link to="/popquotes" style={{ color: 'inherit', textDecoration: 'none' }}>popular Quote</Link></span></div>
                         <div className="item"><span><Link to="/alluser" style={{ color: 'inherit', textDecoration: 'none' }}>Users </Link></span></div>
                         <div className="item"><span><Link to="/about" style={{ color: 'inherit', textDecoration: 'none' }}>About ADAB</Link></span></div>
-                        {"Welcome " + this.props.user.sub} {"  "}
+                        <p>{"Welcome " + this.props.user.sub} {"  "}</p>
                     </div>
                     <div>
                         {/* <Route exact path="/" component={Home}></Route> */}
@@ -146,7 +147,9 @@ export default class Home extends Component {
                         <Route path="/profile" component={() => <Profile profile={this.props.user} />}></Route>
                         <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub}  />}></Route>
 
-                        <Route path="/quotes" component={() => <AllQoutes quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} loadQuote={this.loadQuote} />}></Route>
+                        <Route path="/quotes" component={() => <AllQoutes quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} loadQuote={this.loadQuote} pop={false}/>}></Route>
+                        <Route path="/popquotes" component={() => <AllQoutes quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} loadQuote={this.loadQuote} pop={true}/>}></Route>
+
                         <Route path="/about" component={() => <Video />}></Route>
 
 

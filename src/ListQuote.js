@@ -27,9 +27,12 @@ export default class ListQuote extends Component {
                 console.log(error);
             })
     }
+   
 
     render() {
         console.log(this.state.quotes + "from list")
+       
+    
         return (
             <div>
                 <NewQuote user={this.props.user} addQuote={this.props.addQuote} />

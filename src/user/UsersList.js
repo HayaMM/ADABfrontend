@@ -64,7 +64,7 @@ export default class UsersList extends Component {
     render() {
         return (
             <div>
-                <h2 className="h">Users of ADAB website</h2>
+                <h2 className="h">All account in ADAB website</h2>
                 <ul>
                     {this.state.users.map((user, index) =>
                         <div key={index}>

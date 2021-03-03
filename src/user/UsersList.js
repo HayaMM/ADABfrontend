@@ -15,8 +15,8 @@ export default class UsersList extends Component {
     dynamicSearch = () => {
         console.log("---" + this.state.quotess)
         return this.state.users.filter(user => {
-            const userr = user.firstName + user.lastName ;
-            console.log("-------"+userr)
+            const userr = user.firstName + user.lastName;
+            console.log("-------" + userr)
             return userr.toLowerCase().includes(this.state.search.toLowerCase())
         })
     }
@@ -78,10 +78,12 @@ export default class UsersList extends Component {
     render() {
         return (
             <div>
+
                 <h2 className="h">Users of ADAB website</h2>
                 <input className="searchbar" type="text" value={this.state.search} onChange={this.editSearch} placeholder="Search ..." />
                 <div>
                     {this.dynamicSearch().map((user, index) =>
+
                         <div key={index}>
                             <Users {...user} isUserRole={this.state.isUserRole} userEmail={this.props.userEmail} deleteAccount={this.deleteAccount} />
                         </div>)}

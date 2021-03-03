@@ -80,10 +80,9 @@ export default class ForgotPassword extends Component {
 
                         />
                     </Form.Group>
-                    <Form.Group className="bttnqroup">
-                        <Button className="btn" onClick={() => this.checkemail(this.state.mail)}>Send</Button>{' '}
+                        <Button className="btn" onClick={() => this.checkemail(this.state.mail)}>Send</Button><br />
+                        <hr/>
                         <Button className="btn" onClick={() => this.props.switch(false)}>already have an account</Button>
-                    </Form.Group>
 
                 </Container>
             </div>

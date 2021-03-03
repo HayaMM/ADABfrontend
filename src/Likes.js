@@ -35,7 +35,7 @@ export default class Likes extends Component {
                 qouteid: this.props.quoteid,
                 user: this.props.email
 
-            }, {
+            , 
                 headers: {
                     "Authorization": "Bearer " + localStorage.getItem("token")
                 }

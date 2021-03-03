@@ -32,7 +32,11 @@ export default class Home extends Component {
     }
     
     loadQuote = () => {
-        axios.get("/adab/quote/index")
+        axios.get("/adab/quote/index" ,{
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
             .then(response => {
                 console.log("quotes from load" + response)
                 this.setState({

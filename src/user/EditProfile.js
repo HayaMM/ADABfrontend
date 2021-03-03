@@ -71,6 +71,10 @@ export default class EditProfile extends Component {
         axios.post(`/adab/user/changepassword?id=${this.props.user.id}`, {
             password: pw,
             newPassword: npw
+        } , {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
         })
             .then(response => {
                 console.log("changed!")

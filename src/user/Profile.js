@@ -19,7 +19,11 @@ export default class Profile extends Component {
     loadUserProfile =( )=>{
         let user = localStorage.getItem("user")
         console.log(user)
-        axios.get(`/adab/user/profile?emailAddress=${user}`)
+        axios.get(`/adab/user/profile?emailAddress=${user}` ,{
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
         .then(response =>{
             console.log(response)
             this.setState({

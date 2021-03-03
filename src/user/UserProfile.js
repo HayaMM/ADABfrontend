@@ -23,7 +23,7 @@ clicked = () => {
                  Last Name: <b>{this.props.user.lastName}</b><br />
                 Email Addrees: <b> {this.props.user.emailAddress}</b><br />
                  Date Of Birth:<b> {this.props.user.dateofBirth}</b><br />
-                 profile image :   <br /> <br /> <Image theimage={this.props.user.image} id={this.props.user.id} loadUserProfile={this.props.loadUserProfile} />
+                 profile image :   <br /> <br /> <Image theimage={this.props.user.image} id={this.props.user.id} url={this.props.url} loadUserProfile={this.props.loadUserProfile} />
                     <br />  <Button className="btn" variant="primary" onClick={() => { this.props.editView(this.props.user.id) }}>Edit</Button>
                     {/* <button onClick={()=>{this.props.deleteAccount(this.props.id)}}>Delete account</button> */}
 

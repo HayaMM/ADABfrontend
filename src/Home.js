@@ -32,7 +32,7 @@ export default class Home extends Component {
     }
     
     loadQuote = () => {
-        axios.get("/adab/quote/index" ,{
+        axios.get(`${this.props.url}/quote/index` ,{
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -49,7 +49,7 @@ export default class Home extends Component {
             })
     }
     addQuote = (quote) => {
-        axios.post(`/adab/quote/add?User=${this.props.user.sub}`, quote, {
+        axios.post(`${this.props.url}/quote/add?User=${this.props.user.sub}`, quote, {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -67,7 +67,7 @@ export default class Home extends Component {
             })
     }
     deleteQuote = (id) => {
-        axios.delete(`/adab/quote/delete?id=${id}`, {
+        axios.delete(`${this.props.url}/quote/delete?id=${id}`, {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -88,7 +88,7 @@ export default class Home extends Component {
         })
     }
     editQuote = (quote) => {
-        axios.put("/adab/quote/edit", quote, {
+        axios.put(`${this.props.url}/quote/edit`, quote, {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -144,13 +144,13 @@ export default class Home extends Component {
                         <p>{"Welcome " + this.props.user.sub} {"  "}</p>
                     </div>
                    
-                        <Route path="/myquote" component={() => <ListQuote user={this.props.user} addQuote={this.addQuote} deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} email={this.props.user}
+                        <Route path="/myquote" component={() => <ListQuote user={this.props.user} url={this.props.url} addQuote={this.addQuote} deleteQuote={this.deleteQuote} isEdit={this.state.isEdit} clickedQuoteId={this.state.clickedQuoteId} editView={this.editView} editQuote={this.editQuote} email={this.props.user}
                         />}></Route>
-                        <Route path="/profile" component={() => <Profile profile={this.props.user} onLogoutHandler={() => this.props.onLogoutHandler()}/>}></Route>
-                        <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub}  />}></Route>
+                        <Route path="/profile" component={() => <Profile profile={this.props.user} url={this.props.url} onLogoutHandler={() => this.props.onLogoutHandler()}/>}></Route>
+                        <Route path="/alluser" component={() => <UsersList userEmail={this.props.user.sub} url={this.props.url}  />}></Route>
 
-                        <Route path="/quotes" component={() => <AllQoutes quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} loadQuote={this.loadQuote} pop={false}/>}></Route>
-                        <Route path="/popquotes" component={() => <AllQoutes quotes={this.state.quotes} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} loadQuote={this.loadQuote} pop={true}/>}></Route>
+                        <Route path="/quotes" component={() => <AllQoutes quotes={this.state.quotes} url={this.props.url} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} loadQuote={this.loadQuote} pop={false}/>}></Route>
+                        <Route path="/popquotes" component={() => <AllQoutes quotes={this.state.quotes} url={this.props.url} clickedQuoteId={this.state.clickedQuoteId} email={this.props.user} loadQuote={this.loadQuote} pop={true}/>}></Route>
 
                         <Route path="/about" component={() => <Video />}></Route>
 

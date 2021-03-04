@@ -6,11 +6,12 @@ import AdabApp from './AdabApp';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+
   <React.StrictMode>
 
     {/* <App /> */}
 
-    <AdabApp />
+    <AdabApp  url={"https://cors-anywhere.herokuapp.com/http://adab-env.eba-nafjbdmq.us-east-2.elasticbeanstalk.com/"}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

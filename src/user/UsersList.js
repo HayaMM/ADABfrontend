@@ -31,7 +31,7 @@ export default class UsersList extends Component {
         this.TypeofUser();
     }
     loadUserList = () => {
-        axios.get("/adab/user/index",{
+        axios.get(`${this.props.url}/user/index`,{
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -48,7 +48,7 @@ export default class UsersList extends Component {
             })
     }
     deleteAccount = (id) => {
-        axios.delete(`/adab/user/delete?id=${id}`,{
+        axios.delete(`${this.props.url}/user/delete?id=${id}`,{
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -65,7 +65,7 @@ export default class UsersList extends Component {
     }
     TypeofUser = () => {
         console.log(this.state.isUserRole)
-        axios.get(`/adab/user/info?emailAddress=${this.props.userEmail}`,{
+        axios.get(`${this.props.url}/user/info?emailAddress=${this.props.userEmail}`,{
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -97,7 +97,7 @@ export default class UsersList extends Component {
                     {this.dynamicSearch().map((user, index) =>
 
                         <div key={index}>
-                            <Users {...user} isUserRole={this.state.isUserRole} userEmail={this.props.userEmail} deleteAccount={this.deleteAccount} theimage={user.image}/>
+                            <Users {...user} isUserRole={this.state.isUserRole} userEmail={this.props.userEmail} url={this.props.url} deleteAccount={this.deleteAccount} theimage={user.image}/>
                         </div>)}
 
                 </div>

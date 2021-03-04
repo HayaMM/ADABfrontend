@@ -12,8 +12,7 @@ export default class Likes extends Component {
    
     togglelike = () => {
         if (this.props.islikes) {
-            console.log("Dislikedd");
-            axios.delete(`/adab/liked/delete?qid=${this.props.quoteid}&useremail=${this.props.email}`, {
+            axios.delete(`${this.props.url}/liked/delete?qid=${this.props.quoteid}&useremail=${this.props.email}`, {
                 headers: {
                     "Authorization": "Bearer " + localStorage.getItem("token")
                 }
@@ -31,13 +30,12 @@ export default class Likes extends Component {
                 })
         }
         else {
-            console.log("likkd")
-            axios.post("/adab/liked/add", {
+            axios.post(`${this.props.url}/liked/add`, {
                 like: "true",
                 qouteid: this.props.quoteid,
                 user: this.props.email
 
-            }, {
+            , 
                 headers: {
                     "Authorization": "Bearer " + localStorage.getItem("token")
                 }

@@ -1,6 +1,7 @@
 <img src="https://i.ibb.co/fnb0TYy/F4273-E7-D-3-D8-E-4-B93-A785-D26-AA09-BC177.png" width="100" height="100">
 
 ## **ADAB** Application: 
+
 **ADAB** is a web application that allows the user to **sign up** and **log in** to the website to perform the **CRUD** functionalities which are **adding**, **editing**, **deleting**, and **viewing** the details of **Quotes**. User can **like quotes**, view the **most liked** quotes of **ADAB** website. User can **reset the password** when forget the password. The app uses **JWT** for **authentication** and **authorization**. 
 
 ### **Back End** repository:
@@ -14,6 +15,7 @@ The Git repository of ADAB's BackEnd: [here](https://git.generalassemb.ly/ghaidh
 
 ### **Technologies** used: 
 **ADAB** used a number of technologies:
+
 * **Git Bash**
 * **React**
 * **APIs**
@@ -30,6 +32,7 @@ The planning documentation for **two weeks** to build **ADAB** website [here](Pl
  <img src="wireframe2.jpeg">
 
  ### **User stories**:
+
 * As a user, I want to be able to create an account, so that I can login.
  * As a user, I want to be able to login, so that I can access the website's functionalities. 
 * As a user, I want to manage my profile so that I can view and update my account details.
@@ -42,6 +45,7 @@ The planning documentation for **two weeks** to build **ADAB** website [here](Pl
 * As an admin, I want to manage user accounts, so that I can delete any account.
 
 ### Embedded screenshot of the app:
+
 * Registration: 
 [HERE](reg.png).
 * Login: 
@@ -68,6 +72,7 @@ The planning documentation for **two weeks** to build **ADAB** website [here](Pl
 [HERE](aboutus.png).
 
 ### **Installation** Instructions:
+
 This project was created with:
 ```
 create-react-app
@@ -81,10 +86,12 @@ You can then run it with:
  npm start
 ```
 
+
 ### **Future work** and **unsolved problems**:
 The user of **ADAB** will be able to follow friends and be a part of the community of adab lovers to share ,rate quotes and poems.
 
 ### Resources
+
 *  **https://www.codejava.net/frameworks/spring-boot/spring-security-forgot-password-tutorial**
 *  **https://create-react-app.dev/docs/adding-custom-environment-variables**
 *  **https://jwt.io/**

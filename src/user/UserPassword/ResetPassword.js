@@ -45,7 +45,7 @@ export default class ResetPassword extends Component {
         const query = new URLSearchParams(search);
         const token = query.get('token')
         console.log(token);
-        axios.post(`/adab/user/resetpassword?token=${token}&password=${this.state.password}`)
+        axios.post(`${this.props.url}/user/resetpassword?token=${token}&password=${this.state.password}`)
             .then(response => {
                 console.log(" " + response.data)
 

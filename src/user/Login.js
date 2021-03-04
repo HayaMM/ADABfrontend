@@ -39,7 +39,7 @@ export default class Login extends Component {
             <Button className="btn" variant="primary" block   onClick={this.loginHandler}>Login</Button><hr/>
             <Button className="btn" variant="primary" block  onClick={() => this.switch(true)}>Forgot password</Button>
             <br /><br />
-        </Container>) : <ForgotPassword switch={this.switch} />
+        </Container>) : <ForgotPassword url={this.props.url} switch={this.switch} />
         return (
             <div>
 

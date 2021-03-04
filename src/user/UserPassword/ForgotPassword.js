@@ -17,7 +17,7 @@ export default class ForgotPassword extends Component {
     checkemail = (email) => {
         console.log(!this.state.emailAddress);
 
-        if (!!this.state.emailAddress) {
+        if (!this.state.emailAddress) {
             this.changepasswordHandler(email);
         } else {
             console.log("should not be empty");
@@ -31,7 +31,7 @@ export default class ForgotPassword extends Component {
 
     }
     changepasswordHandler = (email) => {
-        axios.post(`/adab/user/forgotpassword?emailAddress=${email}`)
+        axios.post(`${this.props.url}/user/forgotpassword?emailAddress=${email}`)
             .then(response => {
                 console.log(" " + response.data)
                 if (response.data !== null) {

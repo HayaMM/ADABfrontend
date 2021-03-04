@@ -19,7 +19,7 @@ export default class Profile extends Component {
     loadUserProfile =( )=>{
         let user = localStorage.getItem("user")
         console.log(user)
-        axios.get(`/adab/user/profile?emailAddress=${user}` ,{
+        axios.get(`${this.props.url}/user/profile?emailAddress=${user}` ,{
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -44,7 +44,7 @@ export default class Profile extends Component {
     }
     editProfile = (user) =>{
         console.log(this.props.profile.sub)
-        axios.put("/adab/user/edit",user)
+        axios.put(`${this.props.url}/user/edit`,user)
             .then(response =>{
                 console.log("Edited!!")
                 console.log(response)
@@ -62,7 +62,7 @@ export default class Profile extends Component {
                 <UserProfile user={this.state.user} editView={this.editView} loadUserProfile={this.loadUserProfile}  onLogoutHandler={() => this.props.onLogoutHandler()}/>
 
   
-                {(this.state.isEdit && this.state.clickedUserId === this.state.user.id) ? <EditProfile user={this.state.user} editProfile={this.editProfile} /> : null}
+                {(this.state.isEdit && this.state.clickedUserId === this.state.user.id) ? <EditProfile user={this.state.user} editProfile={this.editProfile} url={this.props.url}/> : null}
         
             </div>
         )
